@@ -9,7 +9,7 @@ now dotfiles can be used instead of git since it's an alias when handling action
 
 # Installing dotfiles into another system
 
-- echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"' >> \$HOME/.zshrc
+- echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"' >> \$HOME/.zshrc'
 - source ~/.zshrc
 - echo "dotfiles.git" >> .gitignore
 - git clone --bare git@github.com:MuizU/dotfiles.git
