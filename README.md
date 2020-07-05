@@ -12,7 +12,7 @@ now dotfiles can be used instead of git since it's an alias when handling action
 - echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"' 
 - source ~/.zshrc
 - echo "dotfiles.git" >> .gitignore
-- git clone --bare git@github.com:MuizU/dotfiles.git
+- git clone --bare git@github.com:MuizU/.dotfiles.git
 - dotfiles checkout
 - dotfiles config --local status.showUntrackedFiles no
 
