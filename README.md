@@ -1,7 +1,7 @@
 # SETUP
 
 - git init --bare \$HOME/dotfiles.git
-- echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"' 
+- echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"' >> $HOME/.zshrc
 - source ~/.zshrc
 - dotfiles config --local status.showUntrackedFiles no
 
@@ -9,7 +9,7 @@ now dotfiles can be used instead of git since it's an alias when handling action
 
 # Installing dotfiles into another system
 
-- echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"' >> \$HOME/.zshrc'
+- echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"' 
 - source ~/.zshrc
 - echo "dotfiles.git" >> .gitignore
 - git clone --bare git@github.com:MuizU/dotfiles.git
