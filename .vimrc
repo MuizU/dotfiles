@@ -1,7 +1,12 @@
 call plug#begin('~/.vim/plugged')
+Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'gregsexton/MatchTag'
+Plug 'itchyny/vim-gitbranch'
+Plug 'joshdick/onedark.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -141,5 +146,52 @@ if has('nvim')
 else
     " Standard vim specific commands
 endif
+syntax on
+let g:onedark_hide_endofbuffer = 1
+let g:onedark_termcolors = 256
+let g:onedark_terminal_italics = 1
+colorscheme onedark
 
+set clipboard=unnamedplus
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
 set nospell
+let g:lightline = {
+      \ 'colorscheme': 'onedark',
+      \ 'component_function': {
+      \  'gitbranch': 'FugitiveHead'
+      \	 }
+      \ }
+
+execute "set t_8f=\e[38;2;%lu;%lu;%lum"
+execute "set t_8b=\e[48;2;%lu;%lu;%lum"
+set laststatus=2
+if !has('gui_running')
+  set t_Co=256
+endif
+
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_jsdoc = 1
+
+let g:onedark_termcolors=256
+if !has('gui_running')
+  set t_Co=256
+endif
+
+
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
+set conceallevel=1
+
