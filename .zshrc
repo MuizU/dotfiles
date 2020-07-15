@@ -1,10 +1,14 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
 # hisory in cache directory
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/hitsory
+setopt    appendhistory     #Append history to the history file (no overwriting)
+setopt    sharehistory      #Share history across terminals
+setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/muiz/.oh-my-zsh"
@@ -13,6 +17,19 @@ export ZSH="/home/muiz/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
+source ~/.zplug/init.zsh
+zplug "plugins/git",   from:oh-my-zsh
+zplug "plugins/history", from:oh-my-zsh
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
 ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
@@ -165,4 +182,7 @@ alias vim="nvim"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 # export TERM=xterm-256color
+
+# Then, source plugins and add commands to $PATH
+zplug load 
 
