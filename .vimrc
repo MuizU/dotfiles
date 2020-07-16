@@ -152,7 +152,6 @@ let g:onedark_termcolors = 256
 let g:onedark_terminal_italics = 1
 colorscheme onedark
 
-set clipboard=unnamedplus
 noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
