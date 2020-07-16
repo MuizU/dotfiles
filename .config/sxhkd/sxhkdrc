@@ -14,7 +14,6 @@ super + @space
 super + Escape
 	pkill -USR1 -x sxhkd
 
-
 #
 # bspwm hotkeys
 #
@@ -22,6 +21,13 @@ super + Escape
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
+
+
+# Lock Screen
+super + shift + L
+	i3lock-fancy &
+
+
 
 # Quit
 super + alt + Escape
