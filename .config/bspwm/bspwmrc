@@ -2,7 +2,8 @@
 
 sxhkd &
 $HOME/.config/polybar/launch.sh 
-
+$HOME/.config/redshift/autostart.sh
+$HOME/scripts/spotify/launchlistener.sh
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
@@ -18,3 +19,5 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+bspc rule -a vlc desktop='^9'
+
