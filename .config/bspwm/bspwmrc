@@ -1,12 +1,14 @@
 #! /bin/sh
 
 sxhkd &
-$HOME/.config/polybar/launch.sh 
+udiskie -2 &
+pulseaudio --start &
+
 $HOME/.config/redshift/autostart.sh
-$HOME/scripts/spotify/launchlistener.sh
+#$HOME/scripts/spotify/launchlistener.sh
+
 
 bspc monitor -d I II III IV V VI VII VIII IX X
-
 bspc config border_width         2
 bspc config window_gap          12
 
