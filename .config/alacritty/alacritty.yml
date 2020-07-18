@@ -77,33 +77,22 @@
 #multiplier: 3
 # Font configuration
 font:
-# Normal (roman) font face
+  size: 10.0
   normal:
-# Font family
-#
-# Default:
-#   - (macOS) Menlo
-#   - (Linux/BSD) monospace
-#   - (Windows) Consolas
-    family: FiraCode Nerd Font
-# The `style` can be specified to pick a specific face.
-    style: Regular
-# Bold font face
+    family: Fira Mono for Powerline
+    style: Medium
   bold:
-#Font family
-#
-# If the bold family is not specified, it will fall back to the
-# value specified for the normal font.
-    family: FiraCode Nerd Font
-# The `style` can be specified to pick a specific face.
-#style: Bold
-# Italic font face
+    family: Fira Mono for Powerline
   italic:
-# Font family
-#
-# If the italic family is not specified, it will fall back to the
-# value specified for the normal font.
-    family: FiraCode Nerd Font
+    family: Fira Mono for Powerline
+#font:
+  #normal:
+    #family: UbuntuMono Nerd
+    #style: Regular
+  #bold:
+    #family: UbuntuMono Nerd
+  #italic:
+    #family: UbuntuMono Nerd
 # The `style` can be specified to pick a specific face.
 #style: Italic
 # Bold italic font face
