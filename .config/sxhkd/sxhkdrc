@@ -10,6 +10,10 @@ super + Return
 super + @space
 	rofi -show run
 
+# Lock Screen
+super + shift + L
+	i3lock-fancy &
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -21,11 +25,6 @@ super + Escape
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
-
-
-# Lock Screen
-super + shift + L
-	i3lock-fancy &
 
 
 
@@ -40,6 +39,12 @@ super + {_,shift + }w
 # alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
+
+# set window state to fullscreen
+super + shift + M
+    state=fullscreen; \
+    bspc query -W -w "focused.$state" && state=$(bspc query -T -w | jshon -e client -e lastState -u); \
+    bspc window -t "$state"
 
 # send the newest marked node to the newest preselected node
 super + y
