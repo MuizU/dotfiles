@@ -146,6 +146,12 @@ if has('nvim')
 else
     " Standard vim specific commands
 endif
+if (empty($TMUX))
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
 syntax on
 let g:onedark_hide_endofbuffer = 1
 let g:onedark_termcolors = 256
@@ -193,4 +199,5 @@ let g:javascript_conceal_arrow_function       = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "🞅"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
 set conceallevel=1
-
+let g:NERDToggleCheckAllLines = 1
+autocmd FileType * set formatoptions-=cro
