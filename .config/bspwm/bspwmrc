@@ -1,14 +1,21 @@
 #! /bin/sh
 
 sxhkd &
+xrdb ~/.Xresources &
 udiskie -2 &
 pulseaudio --start &
 
 $HOME/.config/redshift/autostart.sh
+$HOME/.config/polybar/launch.sh
 #$HOME/scripts/spotify/launchlistener.sh
 
-
 bspc monitor -d I II III IV V VI VII VIII IX X
+g="$(bspc config window_gap)"
+[[ "$g" -gt 0 ]] && for p in top bottom left right; do
+    bspc config "${p}_padding" "-${g}"
+done
+
+
 bspc config border_width         2
 bspc config window_gap          12
 
