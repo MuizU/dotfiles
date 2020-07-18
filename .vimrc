@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
+Plug 'kovetskiy/sxhkd-vim'
 Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
