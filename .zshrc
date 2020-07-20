@@ -1,9 +1,21 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+setopt PROMPT_SUBST
+PROMPT='%n in ${PWD/#$HOME/~}'
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+PS1="%B%(?.%F{008}%f%K{008}%F{007} %~ %k%F{008}%f.%F{001}%f%K{001}%F{016} %~ %k%F{001}%f)%b %B%F{007}%f%K{007}%F{016}λ%k%F{007}%f%b "
 
 # hisory in cache directory
 HISTSIZE=10000
@@ -15,6 +27,8 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/muiz/.oh-my-zsh"
+
+export EDITOR=nvim
 
 export ZSH_CUSTOM="$ZSH/custom"
 
@@ -36,6 +50,7 @@ if ! zplug check --verbose; then
 fi
 
 ZSH_THEME="agnoster"
+#ZSH_THEME="cobalt2"
 
 
 
@@ -48,26 +63,23 @@ ZSH_THEME="agnoster"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Enable colors and change prompt:
-autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
 
-# Use ranger to switch directories and bind it to ctrl-o
-rangercd () {
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
     tmp="$(mktemp)"
-    ranger --choosedir="$tmp" "$@"
+    lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
             dir="$(cat "$tmp")"
-            rm -f "$tmp"
-            [ --datadir "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"                                               
+            rm -f "$tmp" >/dev/null
+            [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
         fi
 }
 
-bindkey -s '^o' 'ranger\n'
+bindkey -s '^o' 'lfcd\n'
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -209,3 +221,16 @@ bindkey '^e' edit-command-line
 
 # Then, source plugins and add commands to $PATH
 zplug load 
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Man colours enabled
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
