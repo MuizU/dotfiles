@@ -1,12 +1,14 @@
 # interpreter for shell commands (needs to be POSIX compatible)
 
 set shell zsh
-set shellopts '-eu'
-set icons
+set hidden false
+set shellopts '-eu:--shwordsplit'
+set filesep "\n"
+set icons true
 set scrolloff 10
-set color256
+set color256 true
+set ifs "\n"
 set period 1
-set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -15,14 +17,12 @@ set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 # $fx variables contain names with '*' or '?' characters. However, this option
 # is used selectively within individual commands as it can be limiting at
 # times.
-set shellopts '-eu'
 
 # set internal field separator (IFS) to "\n" for shell commands
 # This is useful to automatically split file names in $fs and $fx properly
 # since default file separator used in these variables (i.e. 'filesep' option)
 # is newline. You need to consider the values of these options and create your
 # commands accordingly.
-set ifs "\n"
 
 # leave some space at the top and the bottom of the screen
 set scrolloff 10
@@ -37,6 +37,30 @@ map X !$f
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
+
+# Go to ... dir
+map gc :cd ~/.config/
+map gb :cd ~/.local/bin/
+map gd :cd ~/Documents/
+map gl :cd ~/.local
+map gD :cd ~/Downloads/
+map gp :cd ~/Pictures/
+map gv :cd ~/Videos/
+
+# Make Directory
+cmd mkdir %mkdir "$(echo $* | tr ' ' '\ ')"
+map a push :mkdir<space>
+cmd mkdirs %mkdir "$@"
+map A push :mkdirs<space>
+
+# Make File
+cmd touch %touch "$@"
+map I push :touch<space>
+
+# Image Preview
+set preview true
+set previewer ~/.config/lf/previewer
+set cleaner ~/.config/lf/cleaner
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
@@ -55,7 +79,7 @@ cmd open ${{
 # map r push :rename<space>
 
 # make sure trash folder exists
-# %mkdir -p ~/.trash
+ %mkdir -p ~/.trash
 
 # move current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
