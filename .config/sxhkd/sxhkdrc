@@ -12,7 +12,11 @@ super + @space
 
 # Lock Screen
 super + shift + L
-	i3lock-fancy &
+	i3lock
+
+# Open Browser
+super + shift + B
+	brave
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -26,6 +30,26 @@ super + Escape
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
+
+# increase brightness
+XF86MonBrightnessDown
+	xbacklight -dec 5 
+
+# Decreasse Brightness
+XF86MonBrightnessUp
+	xbacklight -inc 5 
+
+# Increase Volume
+XF86AudioRaiseVolume
+	pactl -- set-sink-volume 0 +5%
+
+# Decrease Volume
+XF86AudioLowerVolume
+	pactl -- set-sink-volume 0 -10%
+
+# Mute Volume
+XF86AudioMute
+	pactl -- set-sink-volume 0 0%
 
 
 # Quit
