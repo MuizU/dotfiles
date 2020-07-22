@@ -12,11 +12,15 @@ super + @space
 
 # Lock Screen
 super + shift + L
-	i3lock
+    betterlockscreen -l dim	
 
 # Open Browser
 super + shift + B
 	brave
+
+# Shutdown
+super + Delete
+	shutdown now
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -137,6 +141,10 @@ super + ctrl + {h,j,k,l}
 # preselect the ratio
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
+
+# move window to workspace
+super + shift + {1-9}
+    id=$(bspc query -N -n); bspc node -d ^{1-9}; bspc node -f ${id}
 
 # cancel the preselection for the focused node
 super + ctrl + space
