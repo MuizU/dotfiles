@@ -1,6 +1,8 @@
 call plug#begin('~/.vim/plugged')
-Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
+Plug 'honza/vim-snippets'
+Plug 'dense-analysis/ale'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
@@ -32,6 +34,17 @@ Plug 'christoomey/vim-system-copy'
 call plug#end()
 let g:rainbow_active = 1 
 
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap)
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['eslint']
+nmap <C-f> <Plug>(ale_fix)
+
+" Fix files automatically on save
+let g:ale_fix_on_save = 1
+
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 set backspace=indent,eol,start
 set hidden
@@ -63,7 +76,7 @@ else
 endif
 inoremap <silent><expr> <c-space> coc#refresh()
 autocmd vimenter * NERDTree
-set number
+set relativenumber
 " Remove expandable arrow
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
 let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
@@ -186,6 +199,12 @@ if !has('gui_running')
   set t_Co=256
 endif
 
+let g:python3_host_prog = '/usr/bin/python3'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:python3_host_prog = '/usr/bin/python3.'
 
 let g:javascript_conceal_function             = "ƒ"
 let g:javascript_conceal_null                 = "ø"
