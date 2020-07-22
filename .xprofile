@@ -1,0 +1,5 @@
+copyq
+systemctl start unit
+$HOME/scripts/spotify/launchlistener.sh &
+redshift &
+xrdb ~/.Xresources &
