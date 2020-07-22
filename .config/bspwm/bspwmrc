@@ -10,9 +10,9 @@ sxhkd &
 xrdb ~/.Xresources &
 udiskie -2 &
 
-$HOME/.config/redshift/autostart.sh
-$HOME/.config/polybar/launch.sh
-#$HOME/scripts/spotify/launchlistener.sh
+$HOME/.config/polybar/launch.sh &
+$HOME/.config/redshift/autostart.sh &
+$HOME/scripts/spotify/launchlistener.sh
 
 g="$(bspc config window_gap)"
 [[ "$g" -gt 0 ]] && for p in top bottom left right; do
