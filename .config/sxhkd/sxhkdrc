@@ -21,12 +21,19 @@ super + shift + B
 # Shutdown
 super + Delete
 	shutdown now
+# Restart
+super + shift + Delete + R
+	reboot
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
+# open copyq
+ctrl + v
+	copyq && copyq show
+
+
 # bspwm hotkeys
 #
 
