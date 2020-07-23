@@ -33,7 +33,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'christoomey/vim-system-copy'
 call plug#end()
 let g:rainbow_active = 1 
-
 nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap)
 let g:ale_fixers = {}
