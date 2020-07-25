@@ -3,7 +3,6 @@
 feh --no fehbg --bg-fill "$HOME/.config/bspwm/wallpaper"
 
 
-killall "nm-applet"
 xrdb ~/.Xresources &
 nm-applet &
 pulseaudio --start &
@@ -40,3 +39,4 @@ bspc rule -a Screenkey manage=off
 bspc rule -a vlc desktop='^9'
 
 
+copyq &
