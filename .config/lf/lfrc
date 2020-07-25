@@ -70,6 +70,7 @@ cmd open ${{
         text/*) nvim $fx;;
 	application/json) nvim $fx;;
 	application/pdf) zathura $fx;;
+	inode/*) nvim $fx;;
 	video/*) vlc $f;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
