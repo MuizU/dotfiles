@@ -37,6 +37,7 @@ bspc rule -a spotify desktop='^10'
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a vlc desktop='^9'
+bspc rule -a Zathura state=tiled
 
 
 copyq &
