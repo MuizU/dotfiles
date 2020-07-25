@@ -79,12 +79,12 @@
 font:
   size: 10.0
   normal:
-    family: Fira Mono for Powerline
+    family: Monospace
     style: Medium
   bold:
-    family: Fira Mono for Powerline
+    family: Monospace
   italic:
-    family: Fira Mono for Powerline
+    family: Monospace
 #font:
   #normal:
     #family: UbuntuMono Nerd
