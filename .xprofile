@@ -1,0 +1,3 @@
+$HOME/scripts/spotify/launchlistener.sh &
+redshift &
+xrdb ~/.Xresources &
