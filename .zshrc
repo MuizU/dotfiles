@@ -37,18 +37,6 @@ export ZSH_CUSTOM="$ZSH/custom"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-source ~/.zplug/init.zsh
-zplug "plugins/git",   from:oh-my-zsh
-zplug "plugins/history", from:oh-my-zsh
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
 ZSH_THEME="agnoster"
 #ZSH_THEME="cobalt2"
 
@@ -175,6 +163,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
 	zsh-syntax-highlighting
+	history
 	vi-mode
 	)	
 
@@ -221,7 +210,6 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Then, source plugins and add commands to $PATH
-zplug load 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -235,3 +223,5 @@ man() {
     LESS_TERMCAP_us=$'\e[01;32m' \
     command man "$@"
 }
+
+source /home/muiz_bspwm/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
