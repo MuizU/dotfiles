@@ -1,6 +1,8 @@
 call plug#begin('~/.vim/plugged')
 Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale'
+Plug 'ptzz/lf.vim'
+Plug 'rbgrouleff/bclose.vim'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
@@ -220,3 +222,5 @@ let g:javascript_conceal_underscore_arrow_function = "🞅"
 set conceallevel=1
 let g:NERDToggleCheckAllLines = 1
 autocmd FileType * set formatoptions-=cro
+let g:NERDTreeHijackNetrw = 0 
+let g:lf_replace_netrw = 1 
