@@ -58,7 +58,6 @@ map I push :touch<space>
 
 # Image Preview
 set preview true
-set previewer ~/.config/lf/previewer
 set cleaner ~/.config/lf/cleaner
 
 # define a custom 'open' command
@@ -69,7 +68,7 @@ cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) nvim $fx;;
 	application/json) nvim $fx;;
-	application/pdf) zathura $fx;;
+	application/pdf) setsid -f zathura $fx >/dev/null 2>&1 ;;
 	inode/*) nvim $fx;;
 	video/*) vlc $f;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
@@ -146,6 +145,29 @@ cmd yank-basename ${{
     echo "$fx" |
       xargs -r -d '\n' basename -a -- |
       xclip -i -selection clipboard
+}}
+
+cmd video_preview ${{
+    CACHE=$(mktemp /tmp/thumb_cache.XXXXX)
+    ffmpegthumbnailer -i "$f" -o $CACHE -s 0
+    /path/to/draw_img.sh $CACHE && rm $CACHE
+}}
+map + :video_preview
+
+cmd paste ${{
+    send="while read -r line; do lf -remote \"send $id echo \$line\"; done && lf -remote 'send reload'"
+    load=$(lf -remote 'load')
+    mode=$(echo "$load" | sed -n '1p')
+    srcF=$(mktemp)
+    echo "$load" | sed '1d' > "$srcF"
+    s='' && [ ! -w . ] && s='sudo'
+    case "$mode" in
+        copy) cmd='cp-p';; move) cmd='mv-p';;
+    esac
+    cmd="$cmd --new-line"
+    $s sh -c "$cmd --backup=numbered -F \"$srcF\" . | $send && rm -f \"$srcF\" &"
+    lf -remote 'send load'
+    lf -remote 'send clear'
 }}
 
 cmd yank-basename-without-extension ${{
