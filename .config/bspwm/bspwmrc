@@ -5,6 +5,7 @@ feh --no fehbg --bg-fill "$HOME/.config/bspwm/wallpaper"
 
 xrdb ~/.Xresources &
 nm-applet &
+pulseaudio -k
 pulseaudio --start &
 picom --experimental-backends &
 sxhkd &
