@@ -1,1 +1,1 @@
-/home/muiz/.vimrc
+/home/muiz_bspwm/.vimrc
