@@ -7,7 +7,7 @@ xrdb ~/.Xresources &
 nm-applet &
 pulseaudio -k
 pulseaudio --start &
-picom --experimental-backends &
+picom &
 sxhkd &
 killall "dunst"
 dunst &
