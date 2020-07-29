@@ -72,6 +72,7 @@ cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) nvim $fx;;
 	application/json) nvim $fx;;
+    application/octet-stream) nvim $fx;;
 	application/pdf) setsid -f zathura $fx >/dev/null 2>&1 ;;
 	inode/*) nvim $fx;;
 	video/*) vlc $f >/dev/null 2>&1 ;;
