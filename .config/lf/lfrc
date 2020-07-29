@@ -9,7 +9,7 @@ set scrolloff 10
 set color256 true
 set ifs "\n"
 set period 1
-
+set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
 # exit on error and option '-u' is used to give error for unset variables.
@@ -23,6 +23,9 @@ set period 1
 # since default file separator used in these variables (i.e. 'filesep' option)
 # is newline. You need to consider the values of these options and create your
 # commands accordingly.
+
+
+$lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
 
 # leave some space at the top and the bottom of the screen
 set scrolloff 10
@@ -41,6 +44,7 @@ map O $mimeopen --ask $f
 map gc :cd ~/.config/
 map gb :cd ~/.local/bin/
 map gd :cd ~/Documents/
+map gm :cd ~/media
 map gl :cd ~/.local
 map gD :cd ~/Downloads/
 map gp :cd ~/Pictures/
@@ -70,7 +74,7 @@ cmd open ${{
 	application/json) nvim $fx;;
 	application/pdf) setsid -f zathura $fx >/dev/null 2>&1 ;;
 	inode/*) nvim $fx;;
-	video/*) vlc $f;;
+	video/*) vlc $f >/dev/null 2>&1 ;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 
@@ -147,12 +151,6 @@ cmd yank-basename ${{
       xclip -i -selection clipboard
 }}
 
-cmd video_preview ${{
-    CACHE=$(mktemp /tmp/thumb_cache.XXXXX)
-    ffmpegthumbnailer -i "$f" -o $CACHE -s 0
-    /path/to/draw_img.sh $CACHE && rm $CACHE
-}}
-map + :video_preview
 
 cmd paste ${{
     send="while read -r line; do lf -remote \"send $id echo \$line\"; done && lf -remote 'send reload'"
@@ -168,6 +166,39 @@ cmd paste ${{
     $s sh -c "$cmd --backup=numbered -F \"$srcF\" . | $send && rm -f \"$srcF\" &"
     lf -remote 'send load'
     lf -remote 'send clear'
+}}
+
+
+cmd moveto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Move to where?"
+	dest="$(cut -d'	' -f2- ${XDG_CONFIG_HOME:-$HOME/.config}/directories | fzf | sed 's|~|$HOME|' )" &&
+	for x in $fx; do
+		eval mv -iv \"$x\" \"$dest\"
+	done &&
+	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+}}
+
+cmd copyto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Copy to where?"
+	dest="$(cut -d'	' -f2- ${XDG_CONFIG_HOME:-$HOME/.config}/directories | fzf | sed 's|~|$HOME|' )" &&
+	for x in $fx; do
+		eval cp -ivr \"$x\" \"$dest\"
+	done &&
+	notify-send "📋 File(s) copied." "File(s) copies to $dest."
+}}
+
+
+cmd delete ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/N]"
+	read ans
+	[ $ans = "y" ] && rm -rf $fx
 }}
 
 cmd yank-basename-without-extension ${{
@@ -187,4 +218,12 @@ cmd yank-basename-without-extension ${{
           print $0
       }' | xclip -i -selection clipboard
 }}
+cmd bulkrename $vidir
+
+map B bulkrename
 map yp yank-path
+map C copyto
+map D delete
+map M moveto
+map <c-r> reload
+map <enter> shell
