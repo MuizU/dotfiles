@@ -13,6 +13,9 @@ export COLORTERM="truecolor"
 export PAGER="less"
 export IMAGE="sxiv"
 
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export LF_ICONS="\
 di=:\
 fi=:\
