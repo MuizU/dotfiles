@@ -13,7 +13,7 @@ Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
-Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
+Plug 'xuhdev/vim-latex-live-preview'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'kien/ctrlp.vim'
@@ -29,16 +29,15 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter' 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'vim-scripts/vim-auto-save', {'for':'tex'}
+"Plug 'vim-scripts/vim-auto-save', {'for':'tex'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'luochen1990/rainbow'
 Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kamykn/spelunker.vim'
 Plug 'lervag/vimtex'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'christoomey/vim-system-copy'
 call plug#end()
 let g:rainbow_active = 1 
@@ -52,8 +51,14 @@ nmap <C-f> <Plug>(ale_fix)
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
+let g:vimtex_mappings_enabled = 'true'
 " Goyo plugin
 nmap <leader>f :Goyo \| set linebreak<CR>
+
+" vimtex mappings
+nmap <leader>li <plug>(vimtex-info) <CR>
+nmap <leader>lv <plug>(vimtex-view)	<CR>
+nmap <leader>lt <plug>(vimtex-toc-open)	<CR>
 
 
 " Spellcheck
@@ -119,7 +124,6 @@ if exists('*complete_info')
 else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-inoremap <silent><expr> <c-space> coc#refresh()
 autocmd vimenter * NERDTree
 set number relativenumber
 " Remove expandable arrow
@@ -177,7 +181,6 @@ call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
   autocmd FileType json syntax match Comment +\/\/.\+$+
-let g:coc_start_at_startup = 1
 let g:NERDTreeHijackNetrw = 0 
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -186,17 +189,6 @@ set clipboard=unnamedplus
 let g:system_copy#copy_command='xclip -sel clipboard'
 let g:system_copy#paste_command='xclip -sel clipboard -o'
 
-augroup vimrc_coc
-  autocmd!
-  autocmd VimEnter * call s:setup_coc()
-augroup END
-
-function s:setup_coc() abort
-  call coc#config('coc.preferences', {
-        \ 'diagnostic.displayByAle': 1,
-        \ 'diagnostic.triggerSignatureHelp': 0,
-        \ })
-endfunction
 
 
 nmap <C-n> :NERDTreeToggle<CR>
@@ -287,15 +279,20 @@ if executable('rg')
 endif
 
 
-let g:python3_host_prog = '/usr/bin/python3'
 
 let g:netrw_browse_split=2
 let g:netrw_banner=0
 let g:netrw_winsize = 25
 
+if has('nvim')
+let g:vimtex_compiler_progname = 'nvr'
+endif
+
 let g:ctrlp_use_caching = 0
 
-let g:python3_host_prog = '/usr/bin/python3.'
+let g:python3_host_prog = '/usr/bin/python'
+
+
 
 " javascript glyphs
 let g:javascript_conceal_function             = "ƒ"
@@ -330,3 +327,12 @@ let g:lf_replace_netrw = 1
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
+
+" compile tex files on save
+autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redraw!
+set pyxversion=3
+
+"Enable 256 colors
+if $COLORTERM == 'alacritty'
+    set t_Co=256
+endif
