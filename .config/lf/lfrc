@@ -225,6 +225,7 @@ map B bulkrename
 map yp yank-path
 map C copyto
 map D delete
+map yb yank-basename-without-extension
 map M moveto
 map <c-r> reload
 map <enter> shell
