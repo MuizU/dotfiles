@@ -11,11 +11,11 @@ super + @space
 	rofi -show run
 
 # Lock Screen
-super + shift + L
+super + L
     betterlockscreen -l dim	
 
 # Open Browser
-super + shift + B
+super + b
 	brave
 
 # Shutdown
