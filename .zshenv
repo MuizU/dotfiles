@@ -1,5 +1,5 @@
 typeset -U PATH path
-path=("$HOME/.local/bin" "$HOME/.config/lf" "$HOME/.config/bspwm" "$HOME/.config/coc" "$HOME/.config/nvim" "$HOME/.config/rofi" "$HOME/.config/sxhkd" "$HOME/.config/dunst" "$path[@]")
+path=("$HOME/.local/bin" "$HOME/.npm-global" "$HOME/.config/lf" "$HOME/.config/bspwm" "$HOME/.config/coc" "$HOME/.config/nvim" "$HOME/.config/rofi" "$HOME/.config/sxhkd" "$HOME/.config/dunst" "$path[@]")
 export PATH
 
 export EDITOR="nvim"
@@ -8,6 +8,7 @@ export OPENER="xdg-open"
 export BROWSER="brave"
 export VIDEO="vlc"
 export WM="bspwm"
+export NPM_CONFIG_PREFIX="~/.npm-global"
 export VISUAL="nvim"
 export COLORTERM="truecolor"
 export PAGER="less"
