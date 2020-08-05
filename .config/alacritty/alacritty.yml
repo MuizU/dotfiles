@@ -3,14 +3,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
-# TERM variable
-#
-# This value is used to set the `$TERM` environment variable for
-# each instance of Alacritty. If it is not present, alacritty will
-# check the local terminfo database and use `alacritty` if it is
-# available, otherwise `xterm-256color` is used.
-#TERM: alacritty
+env:
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: xterm-256color
 #window:
 # Window dimensions (changes require restart)
 #
@@ -68,13 +68,13 @@
 # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
 # Set this to `None` to use the default theme variant.
 #gtk_theme_variant: None
-#scrolling:
+scrolling:
 # Maximum number of lines in the scrollback buffer.
 # Specifying '0' will disable scrolling.
-#history: 10000
+  history: 10000
 # Number of lines the viewport will move for every line scrolled when
 # scrollback is enabled (history > 0).
-#multiplier: 3
+  multiplier: 3
 # Font configuration
 font:
   size: 10.0
@@ -133,7 +133,7 @@ font:
 # effect.
 #use_thin_strokes: true
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 # Colors (Tomorrow Night Bright)
 #colors:
 # Default colors
@@ -325,10 +325,10 @@ background_opacity: 0.85
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 #shell:
-#  program: /bin/bash
-#  args:
-#    - --login
-# Startup directory
+  #program: /bin/zsh
+  #args:
+    #- --login
+    #- "tmux attach || tmux"
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
