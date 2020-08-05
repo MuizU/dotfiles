@@ -1,4 +1,6 @@
 " activates syntax highlighting among other things
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 syntax on
 let mapleader = " "
 set splitbelow splitright
@@ -6,7 +8,9 @@ call plug#begin('~/.vim/plugged')
 "Plug 'honza/vim-snippets'
 Plug 'ap/vim-css-color'
 Plug 'mbbill/undotree'
+Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
+Plug 'Shougo/echodoc.vim'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/goyo.vim' 
 Plug 'ptzz/lf.vim'
@@ -23,30 +27,77 @@ Plug 'joshdick/onedark.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug  'posva/vim-vue'
-Plug 'tomtom/tcomment_vim'
+"Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter' 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 "Plug 'vim-scripts/vim-auto-save', {'for':'tex'}
 Plug 'ryanoasis/vim-devicons'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'luochen1990/rainbow'
-Plug 'preservim/nerdtree'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kamykn/spelunker.vim'
 Plug 'lervag/vimtex'
 Plug 'christoomey/vim-system-copy'
 call plug#end()
 let g:rainbow_active = 1 
+"split two windows
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30 <CR>
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+let g:NetrwIsOpen=0
+
+function! ToggleNetrw()
+        let i = bufnr("$")
+        let wasOpen = 0
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i
+                let wasOpen = 1
+            endif
+            let i-=1
+        endwhile
+    if !wasOpen
+        silent Lexplore
+    endif
+endfunction
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
+
+noremap <silent> <C-N> :call ToggleNetrw()<CR>
+"YouCompleteMe do to definition
+nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
+
+"YouCompleteMe Fix it
+nnoremap <silent> <Leader>gf :YcmCompleter Fixit<CR>
 nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap)
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
-nmap <C-f> <Plug>(ale_fix)
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier','eslint'],
+\}
+let g:ale_completion_enabled = 1
+nmap <C-f> :Prettier <CR>
+" To use echodoc, you must increase 'cmdheight' value.
+set cmdheight=2
+let g:echodoc_enable_at_startup = 1
 
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+" note that if you are using Plug mapping you should not use `noremap` mappings.
+nmap <F5> <Plug>(lcn-menu)
+" Or map each action separately
+nmap <silent>K <Plug>(lcn-hover)
+nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> <F2> <Plug>(lcn-rename)
 
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
@@ -54,7 +105,6 @@ let g:ale_sign_warning = '⚠️'
 let g:vimtex_mappings_enabled = 'true'
 " Goyo plugin
 nmap <leader>f :Goyo \| set linebreak<CR>
-
 " vimtex mappings
 nmap <leader>li <plug>(vimtex-info) <CR>
 nmap <leader>lv <plug>(vimtex-view)	<CR>
@@ -73,14 +123,6 @@ nmap <leader>gc :vertical Gcommit <CR>
 " undo tree
 nnoremap <leader>u :UndotreeShow<CR>
 
-"split two windows
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30 <CR>
-
-"YouCompleteMe do to definition
-nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-
-"YouCompleteMe Fix it
-nnoremap <silent> <Leader>gf :YcmCompleter Fixit<CR>
 
 
 
@@ -103,8 +145,8 @@ let g:livepreview_previewer = 'zathura'
 let g:ctrlp_user_command = ['.git/','git --git-dir=%s/.git ls-files -oc --exclude-standard']
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-let g:NERDTreeIgnore = ['^node_modules$']
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"let g:NERDTreeIgnore = ['^node_modules$']
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -124,34 +166,34 @@ if exists('*complete_info')
 else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 set number relativenumber
 " Remove expandable arrow
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
+"let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
 let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
-let NERDTreeDirArrowExpandable = "\u00a0"
-let NERDTreeDirArrowCollapsible = "\u00a0"
-let NERDTreeNodeDelimiter = "\x07"
+"let NERDTreeDirArrowExpandable = "\u00a0"
+"let NERDTreeDirArrowCollapsible = "\u00a0"
+"let NERDTreeNodeDelimiter = "\x07"
 
 " activates filetype detection
 filetype plugin indent on
 
 
 " Autorefresh on tree focus
-function! NERDTreeRefresh()
-    if &filetype == "nerdtree"
-        silent exe substitute(mapcheck("R"), "<CR>", "", "")
-    endif
-endfunction
+"function! NERDTreeRefresh()
+    "if &filetype == "nerdtree"
+        "silent exe substitute(mapcheck("R"), "<CR>", "", "")
+    "endif
+"endfunction
 
   autocmd FileType json syntax match Comment +\/\/.\+$+
-autocmd BufEnter * call NERDTreeRefresh()
+"autocmd BufEnter * call NERDTreeRefresh()
 " Enable folder icons
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 
 " Fix directory colors
-highlight! link NERDTreeFlags NERDTreeDir
+"highlight! link NERDTreeFlags NERDTreeDir
 set encoding=UTF-8
 
 
@@ -161,27 +203,27 @@ set encoding=UTF-8
 
 
 " NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
+"function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ "exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ "exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+"endfunction
 
-call NERDTreeHighlightFile('vue', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+"call NERDTreeHighlightFile('vue', 'green', 'none', 'green', '#151515')
+"call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+"call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+"call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+"call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+"call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+"call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
   autocmd FileType json syntax match Comment +\/\/.\+$+
-let g:NERDTreeHijackNetrw = 0 
+"let g:NERDTreeHijackNetrw = 0 
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 let g:auto_save = 1  " enable AutoSave on Vim startup
 set bs=2
@@ -191,7 +233,7 @@ let g:system_copy#paste_command='xclip -sel clipboard -o'
 
 
 
-nmap <C-n> :NERDTreeToggle<CR>
+"nmap <C-n> :NERDTreeToggle<CR>
 
 if has('nvim')
 
