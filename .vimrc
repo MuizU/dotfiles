@@ -6,14 +6,16 @@ let mapleader = " "
 set splitbelow splitright
 call plug#begin('~/.vim/plugged')
 "Plug 'honza/vim-snippets'
+Plug 'cocopon/iceberg.vim'
+Plug 'lervag/vimtex'
 Plug 'ap/vim-css-color'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-vinegar'
+Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'Shougo/echodoc.vim'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/goyo.vim' 
-Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
@@ -34,16 +36,43 @@ Plug 'preservim/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 "Plug 'vim-scripts/vim-auto-save', {'for':'tex'}
 Plug 'ryanoasis/vim-devicons'
-Plug 'ycm-core/YouCompleteMe'
+"Plug 'ycm-core/YouCompleteMe'
 Plug 'luochen1990/rainbow'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vimwiki/vimwiki'
 Plug 'kamykn/spelunker.vim'
 Plug 'lervag/vimtex'
 Plug 'christoomey/vim-system-copy'
 call plug#end()
 let g:rainbow_active = 1 
+
+" COC smartf
+" press <esc> to cancel.
+nmap f <Plug>(coc-smartf-forward)
+nmap F <Plug>(coc-smartf-backward)
+nmap ; <Plug>(coc-smartf-repeat)
+nmap , <Plug>(coc-smartf-repeat-opposite)
+
+augroup Smartf
+  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
+  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
+augroup end
+
 "split two windows
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30 <CR>
+
+nmap <leader>rr <Plug>(coc-rename)
+nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -72,16 +101,26 @@ augroup ProjectDrawer
 augroup END
 
 noremap <silent> <C-N> :call ToggleNetrw()<CR>
-"YouCompleteMe do to definition
-nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-"YouCompleteMe Fix it
-nnoremap <silent> <Leader>gf :YcmCompleter Fixit<CR>
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+" ALE
 nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap)
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier','eslint'],
+\   'javascript': ['prettier'],
 \}
 let g:ale_completion_enabled = 1
 nmap <C-f> :Prettier <CR>
@@ -89,8 +128,6 @@ nmap <C-f> :Prettier <CR>
 set cmdheight=2
 let g:echodoc_enable_at_startup = 1
 
-" Required for operations modifying multiple buffers like rename.
-set hidden
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 nmap <F5> <Plug>(lcn-menu)
@@ -103,8 +140,6 @@ let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
 let g:vimtex_mappings_enabled = 'true'
-" Goyo plugin
-nmap <leader>f :Goyo \| set linebreak<CR>
 " vimtex mappings
 nmap <leader>li <plug>(vimtex-info) <CR>
 nmap <leader>lv <plug>(vimtex-view)	<CR>
@@ -125,6 +160,18 @@ nnoremap <leader>u :UndotreeShow<CR>
 
 
 
+" Start Page
+let g:startify_custom_header = [
+\'  ████     ██                           ██		 ',
+\' ░██░██   ░██                          ░░		 ',
+\' ░██░░██  ░██  █████   ██████  ██    ██ ██ ██████████	 ',
+\' ░██ ░░██ ░██ ██░░░██ ██░░░░██░██   ░██░██░░██░░██░░██ ',
+\' ░██  ░░██░██░███████░██   ░██░░██ ░██ ░██ ░██ ░██ ░██ ',
+\' ░██   ░░████░██░░░░ ░██   ░██ ░░████  ░██ ░██ ░██ ░██ ',	
+\' ░██    ░░███░░██████░░██████   ░░██   ░██ ███ ░██ ░██ ',
+\' ░░      ░░░  ░░░░░░  ░░░░░░     ░░    ░░ ░░░  ░░  ░░  ',
+\ '',
+ \]
 
 
 
@@ -145,6 +192,30 @@ let g:livepreview_previewer = 'zathura'
 let g:ctrlp_user_command = ['.git/','git --git-dir=%s/.git ls-files -oc --exclude-standard']
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 autocmd StdinReadPre * let s:std_in=1
+
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "let g:NERDTreeIgnore = ['^node_modules$']
 " Use K to show documentation in preview window.
@@ -159,6 +230,19 @@ function! s:show_documentation()
 endfunction
 
 
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 if exists('*complete_info')
@@ -283,6 +367,7 @@ let g:onedark_termcolors = 256
 let g:onedark_terminal_italics = 1
 colorscheme onedark
 
+
 noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
@@ -311,7 +396,6 @@ endif
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_jsdoc = 1
 
-let g:onedark_termcolors=256
 if !has('gui_running')
   set t_Co=256
 endif
