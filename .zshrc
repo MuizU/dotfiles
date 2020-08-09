@@ -5,9 +5,9 @@ neofetch
 setopt PROMPT_SUBST
 PROMPT='%n in ${PWD/#$HOME/~}'
 
-alias tmuxn='tmux new-session -s $$'
-_trap_exit() { tmux kill-session -t $$; }
-trap _trap_exit EXIT
+#alias tmuxn='tmux new-session -s $$'
+ #_trap_exit() { tmux kill-session -t $$; }
+#trap _trap_exit EXIT
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -48,11 +48,11 @@ ZSH_THEME="agnoster"
 # User configuration
 # Always work in a tmux session if tmux is installed
 # https://github.com/chrishunt/dot-files/blob/master/.zshrc
-if which tmux 2>&1 >/dev/null; then
-  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
-   tmuxn ||  tmux attach -t hack; exit
-  fi
-fi
+#if which tmux 2>&1 >/dev/null; then
+  #if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+     #tmux attach -t hack || tmux; exit
+  #fi
+#fi
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
