@@ -4,8 +4,7 @@
 
 # terminal emulator
 super + Return
-	alacritty
-
+    	alacritty
 # program launcher
 super + @space
 	rofi -show run
@@ -21,6 +20,7 @@ super + b
 # Shutdown
 super + Delete
 	shutdown now
+
 # Restart
 super + shift + Delete + R
 	reboot
@@ -32,14 +32,6 @@ super + Escape
 # open copyq
 super + v
 	copyq && copyq show
-
-
-# bspwm hotkeys
-#
-
-# quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
 
 
 # increase brightness
@@ -61,6 +53,15 @@ XF86AudioLowerVolume
 # Mute Volume
 XF86AudioMute
 	pactl -- set-sink-volume 0 0%
+
+
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
 
 
 # Quit
