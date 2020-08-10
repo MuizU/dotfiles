@@ -3,15 +3,16 @@
 feh --no fehbg --bg-fill "$HOME/.config/bspwm/wallpaper"
 
 
-xrdb ~/.Xresources &
 nm-applet &
 pulseaudio -k
 pulseaudio --start &
-picom &
+picom -b &
+flameshot &
 sxhkd &
 killall "dunst"
 dunst &
 xrdb ~/.Xresources &
+copyq &
 udiskie -2 &
 
 $HOME/.config/polybar/launch.sh &
@@ -41,4 +42,3 @@ bspc rule -a vlc desktop='^9'
 bspc rule -a Zathura state=tiled
 
 
-copyq &
