@@ -1,7 +1,6 @@
 #! /bin/sh
 
-feh --no fehbg --bg-fill "$HOME/.config/bspwm/wallpaper"
-
+~/.fehbg
 
 nm-applet &
 pulseaudio -k
