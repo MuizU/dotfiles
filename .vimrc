@@ -1,7 +1,28 @@
 " activates syntax highlighting among other things
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+set backspace=indent,eol,start
+set noerrorbells
+set tabstop=4 softtabstop=4
+
+set expandtab
+set smartindent
+set shiftwidth=4
+set nowrap
+set incsearch " search as characters are entered
+set noswapfile  " swap files won't be created
+set smartindent
+set ignorecase  " case insensitive search
+set smartcase
+set undodir=~/.vim/undodir
+set undofile
+set hidden
+set incsearch
+autocmd StdinReadPre * let s:std_in=1
 syntax on
+set showmatch   " highlight matching brackets
+set wildmenu    " autocompletion for commandmenu
+set wrap    " wrap lines
 let mapleader = " "
 set splitbelow splitright
 call plug#begin('~/.vim/plugged')
@@ -45,6 +66,12 @@ Plug 'lervag/vimtex'
 Plug 'christoomey/vim-system-copy'
 call plug#end()
 let g:rainbow_active = 1 
+
+" save and quit
+nmap <leader>w :w!<cr>
+nmap <leader>q :wq!<cr>
+nmap <leader>x :xa!<cr>
+nmap <leader>qq :q!<cr>
 
 augroup Smartf
   autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
@@ -169,19 +196,6 @@ let g:startify_custom_header = [
 
 
 
-set backspace=indent,eol,start
-set noerrorbells
-set tabstop=4 softtabstop=4
-set expandtab
-set smartindent
-set shiftwidth=4
-set nowrap
-set smartcase
-set undodir=~/.vim/undodir
-set undofile
-set hidden
-set incsearch
-autocmd StdinReadPre * let s:std_in=1
 let g:livepreview_previewer = 'zathura'
 let g:ctrlp_user_command = ['.git/','git --git-dir=%s/.git ls-files -oc --exclude-standard']
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
@@ -411,6 +425,8 @@ let g:python3_host_prog = '/usr/bin/python'
 
 
 
+
+
 " javascript glyphs
 let g:javascript_conceal_function             = "ƒ"
 let g:javascript_conceal_null                 = "ø"
@@ -447,6 +463,10 @@ let g:NERDTreeHijackNetrw = 0
 " compile tex files on save
 autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redraw!
 set pyxversion=3
+
+" line numbers color
+highlight LineNr ctermfg=magenta
+
 
 "Enable 256 colors
 if $COLORTERM == 'alacritty'
