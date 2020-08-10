@@ -8,6 +8,6 @@ killall -q redshift
 while pgrep -u $UID -x redshift >/dev/null; do sleep 1; done
 
 # Launch Redshift, using default config location ~/.config/redshift/redshift.conf
-redshift-gtk &
+redshift &
 
 echo "Redshift Launched.. "
