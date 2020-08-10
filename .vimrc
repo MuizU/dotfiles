@@ -46,13 +46,6 @@ Plug 'christoomey/vim-system-copy'
 call plug#end()
 let g:rainbow_active = 1 
 
-" COC smartf
-" press <esc> to cancel.
-nmap f <Plug>(coc-smartf-forward)
-nmap F <Plug>(coc-smartf-backward)
-nmap ; <Plug>(coc-smartf-repeat)
-nmap , <Plug>(coc-smartf-repeat-opposite)
-
 augroup Smartf
   autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
   autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
@@ -74,6 +67,7 @@ else
   set signcolumn=yes
 endif
 
+let g:lf_replace_netrw = 1 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
@@ -406,9 +400,6 @@ endif
 
 
 
-let g:netrw_browse_split=2
-let g:netrw_banner=0
-let g:netrw_winsize = 25
 
 if has('nvim')
 let g:vimtex_compiler_progname = 'nvr'
@@ -437,7 +428,6 @@ set conceallevel=1
 let g:NERDToggleCheckAllLines = 1
 autocmd FileType * set formatoptions-=cro
 let g:NERDTreeHijackNetrw = 0 
-let g:lf_replace_netrw = 1 
 
 " Update binds when sxhkdrc is updated.
 	autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
