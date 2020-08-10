@@ -237,7 +237,9 @@ map yp yank-path
 map C copyto
 map p paste
 map D delete
+map E extract
 map yb yank-basename-without-extension
+map yB yank-basename
 map M moveto
 map <c-r> reload
 map <enter> shell
