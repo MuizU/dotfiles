@@ -13,6 +13,10 @@ super + @space
 super + L
     betterlockscreen -l dim	
 
+# Rofi emoji picker
+super + period
+    rofi -show emoji -modi emoji
+
 # Open Browser
 super + b
 	brave
@@ -22,7 +26,7 @@ super + Delete
 	shutdown now
 
 # Restart
-super + shift + Delete + R
+super + shift + R
 	reboot
 
 # make sxhkd reload its configuration files:
