@@ -27,7 +27,6 @@ let mapleader = " "
 set splitbelow splitright
 call plug#begin('~/.vim/plugged')
 "Plug 'honza/vim-snippets'
-Plug 'cocopon/iceberg.vim'
 Plug 'lervag/vimtex'
 Plug 'ap/vim-css-color'
 Plug 'mbbill/undotree'
@@ -39,15 +38,14 @@ Plug 'dense-analysis/ale'
 Plug 'junegunn/goyo.vim' 
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kovetskiy/sxhkd-vim'
-Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'gregsexton/MatchTag'
 Plug 'itchyny/vim-gitbranch'
-Plug 'joshdick/onedark.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug  'posva/vim-vue'
@@ -341,7 +339,7 @@ if (empty($TMUX))
 endif
 
 "fzf commands
-nnoremap <silent> <Leader><Space> :Files<CR>
+nnoremap <silent> <Leader>\ :Files<CR>
 nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>g :GFiles<CR>
@@ -368,12 +366,15 @@ else
     let g:fzf_layout = { "window": "silent botright 16split enew" }
 endif
 
+colorscheme onedark
 " Syntax
 syntax on
-let g:onedark_hide_endofbuffer = 1
-let g:onedark_termcolors = 256
-let g:onedark_terminal_italics = 1
-colorscheme onedark
+let g:onedark_hide_endofbuffer=1
+let g:onedark_termcolors=256
+let g:onedark_terminal_italics=1
+
+
+
 
 
 noremap <Leader>y "*y
@@ -382,7 +383,7 @@ noremap <Leader>Y "+y
 noremap <Leader>P "+p
 set nospell
 let g:lightline = {
-       \ 'colorscheme': 'onedark',
+       \ 'colorscheme': 'molokai',
       \ 'active': {
    \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
