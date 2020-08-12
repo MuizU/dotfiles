@@ -4,17 +4,17 @@
 
 (ps x | grep bspswallow | grep -v grep) || $HOME/.local/bin/bspswallow &
 nm-applet &
-i3-battery-popup -L 20 
+i3-battery-popup -L 20 -n -- i &
 picom -b &
 flameshot &
 sxhkd &
 killall "dunst"
 dunst &
-$HOME/.config/polybar/launch.sh &
 xrdb ~/.Xresources &
 copyq &
 udiskie -2 &
 
+$HOME/.config/polybar/launch.sh &
 $HOME/.config/redshift/autostart.sh &
 $HOME/scripts/spotify/launchlistener.sh &
 
