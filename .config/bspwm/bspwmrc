@@ -2,9 +2,8 @@
 
 ~/.fehbg
 
+(ps x | grep bspswallow | grep -v grep) || $HOME/.local/bin/bspswallow &
 nm-applet &
-pulseaudio -k
-pulseaudio --start &
 picom -b &
 flameshot &
 sxhkd &
@@ -24,6 +23,7 @@ g="$(bspc config window_gap)"
     bspc config "${p}_padding" "-${g}"
 done
 
+bspc config external_rules_command $HOME/.config/bspwm/external_rules.sh
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -34,8 +34,9 @@ bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
-bspc rule -a spotify desktop='^10'
+bspc rule -a Spotify desktop='^10' 
 bspc rule -a Kupfer.py focus=on
+bspc rule -a discord desktop='^7' follow=off  
 bspc rule -a Screenkey manage=off
 bspc rule -a vlc desktop='^9'
 bspc rule -a Zathura state=tiled
