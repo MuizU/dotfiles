@@ -37,26 +37,35 @@ super + Escape
 super + v
 	copyq && copyq show
 
+# open brave in incognito
+super + shift + N
+    brave --incognito
+
+# open last opened brave instance
+super + shift + T
+    brave --previous-app
+
 
 # increase brightness
 XF86MonBrightnessDown
-	xbacklight -dec 5 
-
+    $HOME/.config/dunst/scripts/brightnessControl.sh down
+	
 # Decreasse Brightness
 XF86MonBrightnessUp
-	xbacklight -inc 5 
+	$HOME/.config/dunst/scripts/brightnessControl.sh up
 
 # Increase Volume
 XF86AudioRaiseVolume
-	pactl -- set-sink-volume 0 +5%
+	$HOME/.config/dunst/scripts/volumeControl.sh up
 
 # Decrease Volume
 XF86AudioLowerVolume
-	pactl -- set-sink-volume 0 -10%
+	$HOME/.config/dunst/scripts/volumeControl.sh down
+
 
 # Mute Volume
 XF86AudioMute
-	pactl -- set-sink-volume 0 0%
+	$HOME/.config/dunst/scripts/volumeControl.sh mute
 
 
 # bspwm hotkeys
