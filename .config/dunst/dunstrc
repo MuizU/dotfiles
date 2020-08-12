@@ -3,19 +3,28 @@
     color = "#212121"
 
 [urgency_low]
-    background = "#000000"
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the "#" and following would be interpreted as a comment.
+    background = "#2b2b2b"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 5
+    # Icon for notifications with low urgency, uncomment to enable
+    icon = /home/brodie/.config/dunst/normal.png
 
 [urgency_normal]
-    background = "#212121"
+    background = "#2b2b2b"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 5
+    # Icon for notifications with normal urgency, uncomment to enable
+    icon = /home/brodie/.config/dunst/normal.png
 
 [urgency_critical]
-    background = "#fbc02d"
-    foreground = "#000000"
-    timeout = 0
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 5
+    # Icon for notifications with critical urgency, uncomment to enable
+    icon = /home/brodie/.config/dunst/critical.png
 
 [global]
     # The format of the message.  Possible variables:
