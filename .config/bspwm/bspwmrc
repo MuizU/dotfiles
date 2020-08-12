@@ -4,6 +4,7 @@
 
 (ps x | grep bspswallow | grep -v grep) || $HOME/.local/bin/bspswallow &
 nm-applet &
+i3-battery-popup -n &
 picom -b &
 flameshot &
 sxhkd &
