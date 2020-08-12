@@ -37,7 +37,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'Shougo/echodoc.vim'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 Plug 'junegunn/goyo.vim' 
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kovetskiy/sxhkd-vim'
@@ -137,15 +137,11 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-" ALE
-nmap <silent> [c <Plug>(ale_previous_wrap)
-nmap <silent> ]c <Plug>(ale_next_wrap)
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier'],
-\}
-let g:ale_completion_enabled = 1
-nmap <C-f> :Prettier <CR>
+
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+nmap <C-f> :Format <CR>
 " To use echodoc, you must increase 'cmdheight' value.
 set cmdheight=2
 let g:echodoc_enable_at_startup = 1
@@ -158,8 +154,8 @@ nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
 
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+"let g:ale_sign_error = '❌'
+"let g:ale_sign_warning = '⚠️'
 
 let g:vimtex_mappings_enabled = 'true'
 " vimtex mappings
@@ -453,6 +449,7 @@ let g:javascript_conceal_super                = "Ω"
 let g:javascript_conceal_arrow_function       = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "🞅"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
+let g:syntastic_javascript_checkers=['eslint']
 set conceallevel=1
 let g:NERDToggleCheckAllLines = 1
 autocmd FileType * set formatoptions-=cro
