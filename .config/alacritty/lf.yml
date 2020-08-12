@@ -1,4 +1,5 @@
-# onfiguration for Alacritty, the GPU enhanced terminal emulator.
+
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -18,7 +19,7 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 81
+    columns: 80
     lines: 25
 
   # Window position (changes require restart)
@@ -34,8 +35,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 15
-    y: 5
+    x: 20
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -140,9 +141,9 @@ font:
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
-  offset:
-    x: -1
-    y: 0
+  #offset:
+  #  x: 0
+  #  y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -174,8 +175,8 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#0a111f'
-    foreground: '#eaeaea'
+    background: '#1c2c43'
+    foreground: '#c4ccd8'
 
     # Bright and dim foreground colors
     #
@@ -190,8 +191,8 @@ colors:
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
   cursor:
-    text: '#000000'
-    cursor: '#ffffff'
+    text: '#0e1827'
+    cursor: '#9ac4ff'
 
   # Selection colors
   #
@@ -199,30 +200,32 @@ colors:
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
   selection:
-    text: '#eaeaea'
-    background: '#404040'
+    text: '#e0e9ff'
+    background: '#1f1c1a'
 
-  # Normal colors
   normal:
-    black:   '#09101c'
-    red:     '#ff004b'
-    green:   '#21cd5f'
-    yellow:  '#ffca00'
-    blue:    '#1d71ff'
-    magenta: '#e84bff'
-    cyan:    '#1ebbee'
-    white:   '#fefefe'
+    black: '#191414'
+    blue: '#ffc500'
+    cyan: '#ff9021'
+    green: '#35ba55'
+    magenta: '#e265df'
+    red: '#ef1253'
+    white: '#ffffff'
+    yellow: '#1974cd'
 
-  # Bright colors
-  bright:
-    black:   '#303f58'
-    red:     '#eb3f69'
-    green:   '#58e189'
-    yellow:  '#fcdd68'
-    blue:    '#6798eb'
-    magenta: '#d97ff4'
-    cyan:    '#73cae6'
-    white:   '#dbdbdb'
+# Dim colors
+  #
+  # If the dim colors are not set, they will be calculated automatically based
+  # on the `normal` colors.
+  #dim:
+  #  black:   '#000000'
+  #  red:     '#8c3336'
+  #  green:   '#7a8530'
+  #  yellow:  '#97822e'
+  #  blue:    '#506d8f'
+  #  magenta: '#80638e'
+  #  cyan:    '#497e7a'
+  #  white:   '#9a9a9a'
 
   # Indexed Colors
   #
@@ -264,7 +267,7 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.8
+background_opacity: 1.0
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -273,7 +276,7 @@ selection:
   save_to_clipboard: true
 
 # Allow terminal applications to change Alacritty's window title.
-window.window.dynamic_title: true
+window.dynamic_title: true
 
 cursor:
   # Cursor style
