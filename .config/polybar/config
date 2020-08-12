@@ -83,7 +83,7 @@ font-1 = Inconsolata Nerd Font:style=Regular:size=11;1
 font-2 = Inconsolata Nerd Font Mono:style=Regular:size=21;2
 font-3 = Inconsolata Nerd Font Mono:style=Regular:size=6;1
 
-modules-left =  arrow0 bspwm arrow1 arrow0 powermenu arrow1 arrow0 alsa arrow1 arrow0 date arrow1
+modules-left =  arrow0 bspwm arrow1 arrow0 powermenu arrow1 arrow0 alsa arrow1 arrow0 backlight arrow1 arrow0 date arrow1
 modules-center =
 modules-right = arrow2 xwindow arrow3 arrow2 battery arrow3 arrow2 memory arrow3 arrow2 time arrow3
 
@@ -269,6 +269,7 @@ format-padding = ${general.padding}
 label = %time%
 format-font = 2
 
+
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -285,6 +286,41 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-foreground = ${gruvbox.red}
+
+[module/backlight]
+type = internal/xbacklight
+
+; XRandR output to get get values from
+; Default: the monitor defined for the running bar
+output = eDP1
+
+; Create scroll handlers used to set the backlight value
+; Default: true
+enable-scroll = true
+format-background = ${colors.mbg}
+label-foreground = ${colors.xrdb6}
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <label> <bar>
+
+; Available tokens:
+;   %percentage% (default)
+label =  %percentage%%
+
+
+; Only applies if <bar> is used
+bar-width = 16
+bar-foreground-0 = ${colors.background}
+bar-gradient = false
+bar-indicator-font = 4
+bar-indicator = 
+bar-fill = 
+bar-fill-font = 4
+bar-empty = 
+bar-empty-foreground = #636363
+bar-empty-font = 4
 
 
 [module/alsa]
