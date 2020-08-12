@@ -28,6 +28,9 @@ set splitbelow splitright
 call plug#begin('~/.vim/plugged')
 "Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
+Plug 'mattn/emmet-vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-css-color'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-vinegar'
@@ -368,6 +371,7 @@ endif
 
 colorscheme onedark
 " Syntax
+filetype plugin indent on
 syntax on
 let g:onedark_hide_endofbuffer=1
 let g:onedark_termcolors=256
@@ -424,7 +428,15 @@ let g:ctrlp_use_caching = 0
 
 let g:python3_host_prog = '/usr/bin/python'
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
 
