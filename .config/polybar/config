@@ -390,12 +390,14 @@ format-background = ${colors.mbg}
 
 menu-0-0 = Reboot
 menu-0-0-exec = reboot
-menu-0-1 = Hibernate
-menu-0-1-exec = systemctl hibernate
+menu-0-1 = Sleep
+menu-0-1-exec = systemctl suspend -l
 menu-0-2 = Poweroff
 menu-0-2-exec = poweroff
 menu-0-3 = Log out
 menu-0-3-exec = bspc quit
+menu-0-4 = Hibernate
+menu-0-4-exec = systemctl hibernate
 format-font = 3
 menu-0-0-font = 1
 label-close-font = 1
