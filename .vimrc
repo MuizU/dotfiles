@@ -473,3 +473,14 @@ highlight LineNr ctermfg=magenta
 if $COLORTERM == 'alacritty'
     set t_Co=256
 endif
+
+" Run :Xbit to make file executable
+function! SetExecutableBit()
+  let fname = expand("%:p")
+  checktime
+  execute "au FileChangedShell " . fname . " :echo"
+  silent !chmod a+x %
+  checktime
+  execute "au! FileChangedShell " . fname
+endfunction
+command! Xbit call SetExecutableBit()
