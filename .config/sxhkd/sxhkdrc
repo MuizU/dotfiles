@@ -57,16 +57,17 @@ XF86MonBrightnessUp
 
 # Increase Volume
 XF86AudioRaiseVolume
-	volnoti-alsa-increase
+	amixer set Master 5%+ && volnoti-show $(amixer get Master | grep -Po "[0-9]+(?=%)" | tail -1)
 
 # Decrease Volume
 XF86AudioLowerVolume
-	volnoti-alsa-decrease
+	amixer set Master 5%- && volnoti-show $(amixer get Master | grep -Po "[0-9]+(?=%)" | tail -1)
 
 
 # Mute Volume
 XF86AudioMute
-    volnoti-alsa-mute
+	amixer set Master toggle; if amixer get Master | grep -Fq "[off]"; then volnoti-show -m; else volnoti-show $(amixer get Master | grep -Po "[0-9]+(?=%)" | tail -1); fi
+
 
 
 # bspwm hotkeys
