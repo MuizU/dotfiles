@@ -48,24 +48,25 @@ super + shift + T
 
 # increase brightness
 XF86MonBrightnessDown
-    $HOME/.config/dunst/scripts/brightnessControl.sh down
+    volnoti-brightness-decrease
+
 	
 # Decreasse Brightness
 XF86MonBrightnessUp
-	$HOME/.config/dunst/scripts/brightnessControl.sh up
+	volnoti-brightness-increase
 
 # Increase Volume
 XF86AudioRaiseVolume
-	$HOME/.config/dunst/scripts/volumeControl.sh up
+	volnoti-alsa-increase
 
 # Decrease Volume
 XF86AudioLowerVolume
-	$HOME/.config/dunst/scripts/volumeControl.sh down
+	volnoti-alsa-decrease
 
 
 # Mute Volume
 XF86AudioMute
-	$HOME/.config/dunst/scripts/volumeControl.sh mute
+    volnoti-alsa-mute
 
 
 # bspwm hotkeys
