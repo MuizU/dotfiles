@@ -97,7 +97,7 @@ tray-detached = false
 
 override-redirect = false
 
-;wm-restack = bspwm
+wm-restack = bspwm
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
