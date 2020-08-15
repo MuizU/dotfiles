@@ -33,12 +33,8 @@ Plug 'vim-syntastic/syntastic'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-css-color'
 Plug 'mbbill/undotree'
-Plug 'tpope/vim-vinegar'
-Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'Shougo/echodoc.vim'
-"Plug 'dense-analysis/ale'
-Plug 'junegunn/goyo.vim' 
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'xuhdev/vim-latex-live-preview'
@@ -48,11 +44,9 @@ Plug 'kien/ctrlp.vim'
 Plug 'gregsexton/MatchTag'
 Plug 'itchyny/vim-gitbranch'
 Plug 'Raimondi/delimitMate'
-Plug 'rafi/awesome-vim-colorschemes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug  'posva/vim-vue'
-"Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter' 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -103,6 +97,20 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:NetrwIsOpen=0
 
+" Remove 'set hidden'
+set nohidden
+
+augroup netrw_buf_hidden_fix
+    autocmd!
+
+    " Set all non-netrw buffers to bufhidden=hide
+    autocmd BufWinEnter *
+                \  if &ft != 'netrw'
+                \|     set bufhidden=hide
+                \| endif
+
+augroup end
+
 function! ToggleNetrw()
         let i = bufnr("$")
         let wasOpen = 0
@@ -121,6 +129,8 @@ augroup ProjectDrawer
   autocmd!
   autocmd VimEnter * :Vexplore
 augroup END
+
+autocmd FileType netrw setl bufhidden=wipe
 
 noremap <silent> <C-N> :call ToggleNetrw()<CR>
 " GoTo code navigation.
@@ -365,7 +375,7 @@ else
     let g:fzf_layout = { "window": "silent botright 16split enew" }
 endif
 
-colorscheme onedark
+colorscheme gruvbox
 " Syntax
 filetype plugin indent on
 syntax on
