@@ -32,6 +32,8 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 # Path to your oh-my-zsh installation.
 export ZSH="/home/muiz/.oh-my-zsh"
 
+export GOPATH="~/golang"
+
 export EDITOR=nvim
 
 export ZSH_CUSTOM="$ZSH/custom"
