@@ -1,0 +1,6 @@
+#!/bin/bash
+
+BRIGHTNESS=$(</sys/class/backlight/acpi_video0/brightness)
+PERCENT=$(echo "$BRIGHTNESS*100/15" | bc)
+volnoti-show -s /usr/share/pixmaps/volnoti-brightness/display-brightness-symbolic.svg $PERCENT
+© 2020 GitHub, Inc.

@@ -1,0 +1,6 @@
+while true
+do
+if ! grep -q open /proc/acpi/button/lid/LID0/state; then
+betterlockscreen --lock
+fi
+done
