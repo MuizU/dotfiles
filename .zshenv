@@ -1,5 +1,5 @@
 typeset -U PATH path
-path=("$HOME/.local/bin" "$HOME/.npm-global" "$HOME/.config/lf" "$HOME/.config/bspwm" "$HOME/.config/coc" "$HOME/.config/nvim" "$HOME/.config/rofi" "$HOME/.config/sxhkd" "$HOME/.config/dunst" "$path[@]")
+path=("$HOME/.local/bin" "/usr/local/go/bin" "$HOME/.npm-global" "$HOME/.config/lf" "$HOME/.config/bspwm" "$HOME/.config/coc" "$HOME/.config/nvim" "$HOME/.config/rofi" "$HOME/.config/sxhkd" "$HOME/.config/dunst" "$path[@]")
 export PATH
 
 export EDITOR="nvim"
