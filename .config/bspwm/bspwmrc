@@ -3,6 +3,7 @@
 ~/.fehbg
 
 (ps x | grep bspswallow | grep -v grep) || $HOME/.local/bin/bspswallow &
+pkill nm-applet
 nm-applet &
 i3-battery-popup -L 20 -n -- i &
 picom -b &
@@ -14,6 +15,7 @@ sxhkd &
 lock-on-sleep &
 killall "dunst"
 dunst &
+wakeup &
 xrdb ~/.Xresources &
 copyq &
 udiskie -2 &
