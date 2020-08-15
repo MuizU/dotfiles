@@ -6,6 +6,7 @@
 nm-applet &
 i3-battery-popup -L 20 -n -- i &
 picom -b &
+xbacklight -set 5 &
 pkill volnoti
 volnoti &
 flameshot &
