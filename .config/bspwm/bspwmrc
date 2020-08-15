@@ -7,6 +7,7 @@ pkill nm-applet
 nm-applet &
 i3-battery-popup -L 20 -n -- i &
 picom -b &
+cleanfullscreen &
 xbacklight -set 5 &
 pkill volnoti
 volnoti &
