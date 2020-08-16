@@ -8,12 +8,26 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+" match the ending bracket with the same color will have a rainbow color
 Plug 'luochen1990/rainbow'
+
+" displays the actual css color
 Plug 'ap/vim-css-color'
+
+" plugin for vim wiki
 Plug 'vimwiki/vimwiki'
+
+" Will enable undo history in another buffer
 Plug 'mbbill/undotree'
+
+" Allow vim surround
 Plug 'tpope/vim-surround'
+
+" Emmet for vim
 Plug 'mattn/emmet-vim'
+
+Plug 'mhinz/vim-startify'
+
 Plug 'lervag/vimtex', {'for':'tex'}
 Plug 'joshdick/onedark.vim'
 Plug 'rbgrouleff/bclose.vim'
