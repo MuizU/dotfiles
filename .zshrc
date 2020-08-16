@@ -238,4 +238,7 @@ man() {
     command man "$@"
 }
 
-source /home/muiz_bspwm/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
