@@ -23,12 +23,11 @@ Plug 'mbbill/undotree'
 " Allow vim surround
 Plug 'tpope/vim-surround'
 
-" Emmet for vim
-Plug 'mattn/emmet-vim'
-
 Plug 'mhinz/vim-startify'
 
 Plug 'lervag/vimtex', {'for':'tex'}
+
+" Vim one dark
 Plug 'joshdick/onedark.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kovetskiy/sxhkd-vim'
