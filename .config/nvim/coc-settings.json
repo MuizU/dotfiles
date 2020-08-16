@@ -15,6 +15,7 @@
         "UltiSnips",
         "~/.config/nvim/utils/snips"
     ],
+    // language server
     "languageserver": {
         "bash": {
             "command": "bash-language-server",
@@ -28,5 +29,10 @@
                 "~"
             ]
         }
+    },
+    // emmet
+    "emmet.includeLanguages": {
+        "vue-html": "html",
+        "javascript": "javascriptreact"
     }
 }
