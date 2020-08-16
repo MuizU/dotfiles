@@ -41,6 +41,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'posva/vim-vue'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/vim-gitbranch'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'preservim/nerdcommenter' 
 Plug 'kamykn/spelunker.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

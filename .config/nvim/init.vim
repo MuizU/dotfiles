@@ -24,6 +24,8 @@ source $HOME/.config/nvim/keys/mappings.vim
 source $HOME/.config/nvim/themes/onedark.vim
 source $HOME/.config/nvim/themes/lightline.vim
 
+" Added colorizer
+lua require'plug-colorizer'
 
 " Add paths to node and python here
 if !empty(glob("~/.config/nvim/paths.vim"))
