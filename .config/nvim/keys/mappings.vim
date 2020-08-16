@@ -46,34 +46,6 @@ nnoremap <Leader>O O<Esc>^Da
 "Netrw toggle
 noremap <silent> <C-N> :call ToggleNetrw()<CR>
 
-" Coc commands
-nmap <leader>rr <Plug>(coc-rename)
-nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-
-" Coco auto fix
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-nmap <C-f> :Format <CR>
-
 " vimtex mappings
 nmap <leader>li <plug>(vimtex-info) <CR>
 nmap <leader>lv <plug>(vimtex-view)	<CR>

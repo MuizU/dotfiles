@@ -43,8 +43,6 @@ au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm al
 " You can't stop me
 cmap w!! w !sudo tee %
 
-" Set colorscheme
-colorscheme onedark
 
 " Set rainbow parenthesis highlight
 let g:rainbow_active = 1 
@@ -153,10 +151,6 @@ let g:fzf_commits_log_options = '--graph --color=always
 
   autocmd FileType json syntax match Comment +\/\/.\+$+
 
-" one dark settings
-let g:onedark_hide_endofbuffer=1
-let g:onedark_termcolors=256
-let g:onedark_terminal_italics=1
 
 " line numbers color
 highlight LineNr ctermfg=lightblue
