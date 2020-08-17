@@ -51,10 +51,6 @@ nnoremap <Leader>O O<Esc>^Da
 "Netrw toggle
 noremap <silent> <C-N> :call ToggleNetrw()<CR>
 
-" vimtex mappings
-nmap <leader>li <plug>(vimtex-info) <CR>
-nmap <leader>lv <plug>(vimtex-view)	<CR>
-nmap <leader>lt <plug>(vimtex-toc-open)	<CR>
 
 " Spellcheck
 nmap <leader>o :setlocal spell! spelllang=en_us<CR>
@@ -85,3 +81,5 @@ noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
 noremap <Leader>P "+p
+
+nmap <leader>x :Xbit<CR>
