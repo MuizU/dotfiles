@@ -30,7 +30,7 @@ setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/muiz/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 export GOPATH="~/golang"
 
