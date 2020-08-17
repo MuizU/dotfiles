@@ -5,9 +5,9 @@ neofetch --ascii_distro arch
 setopt PROMPT_SUBST
 PROMPT='%n in ${PWD/#$HOME/~}'
 
-#alias tmuxn='tmux new-session -s $$'
- #_trap_exit() { tmux kill-session -t $$; }
-#trap _trap_exit EXIT
+# source 
+source $XDG_CONFIG_HOME/zsh/aliasrc
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -206,10 +206,6 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias oldvim="vim"
-alias vim="nvim"
-alias xampp="sudo /opt/lampp/lampp"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 

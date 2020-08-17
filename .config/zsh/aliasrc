@@ -1,0 +1,16 @@
+#~/bin/sh
+
+
+# aliases
+alias s="sudo"
+alias oldvim="vim"
+alias v="nvim"
+alias xampp="sudo /opt/lampp/lampp"
+alias g="git"
+alias gc="git clone"
+alias gcm="git commit -m"
+alias ga="git add"
+alias gpl="git pull"
+alias gph="git push"
+alias rf="rm -rf"
+
