@@ -211,9 +211,7 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
-# export TERM=xterm-256color
+export TERM=xterm-256color
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line

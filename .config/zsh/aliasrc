@@ -13,4 +13,4 @@ alias ga="git add"
 alias gpl="git pull"
 alias gph="git push"
 alias rf="rm -rf"
-
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
