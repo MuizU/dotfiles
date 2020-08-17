@@ -7,13 +7,13 @@ pkill nm-applet
 nm-applet &
 i3-battery-popup -L 20 -n -- i &
 picom -b &
+xss-lock --transfer-sleep-lock -betterlockscreen -s
 cleanfullscreen &
 xbacklight -set 5 &
 pkill volnoti
 volnoti &
 flameshot &
 sxhkd &
-lock-on-sleep &
 killall "dunst"
 dunst &
 wakeup &
