@@ -30,6 +30,9 @@ Plug 'lervag/vimtex', {'for':'tex'}
 " Vim one dark
 Plug 'joshdick/onedark.vim'
 Plug 'rbgrouleff/bclose.vim'
+
+Plug 'ChristianChiarulli/codi.vim'
+
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'sheerun/vim-polyglot'
