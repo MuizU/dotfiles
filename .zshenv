@@ -2,6 +2,15 @@ typeset -U PATH path
 path=("$HOME/.local/bin" "/usr/local/go/bin" "$HOME/.npm-global" "$HOME/.config/lf" "$HOME/.config/bspwm" "$HOME/.config/coc" "$HOME/.config/nvim" "$HOME/.config/rofi" "$HOME/.config/sxhkd" "$HOME/.config/dunst" "$path[@]")
 export PATH
 
+# default home directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# Clean home
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export OPENER="xdg-open"
@@ -15,7 +24,6 @@ export PAGER="less"
 export IMAGE="sxiv"
 
 
-export XDG_CONFIG_HOME="$HOME/.config"
 
 export LF_ICONS="\
 di=:\
