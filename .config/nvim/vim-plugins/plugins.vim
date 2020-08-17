@@ -20,12 +20,10 @@ Plug 'vimwiki/vimwiki'
 " Will enable undo history in another buffer
 Plug 'mbbill/undotree'
 
-" Allow vim surround
+" vim surround
 Plug 'tpope/vim-surround'
 
 Plug 'mhinz/vim-startify'
-
-Plug 'lervag/vimtex', {'for':'tex'}
 
 " Vim one dark
 Plug 'joshdick/onedark.vim'
@@ -51,6 +49,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+
+Plug 'liuchengxu/vim-which-key'
 
 call plug#end()
 "

@@ -1,4 +1,4 @@
-" Vim-plug
+"" Vim-plug
 source $HOME/.config/nvim/vim-plugins/plugins.vim
 
 " Plugin Configurations
@@ -7,7 +7,6 @@ source $HOME/.config/nvim/plug-config/codi.vim
 source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/ctrlp.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
-source $HOME/.config/nvim/plug-config/vimtex.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim
 source $HOME/.config/nvim/plug-config/vim-polyglot.vim
 
@@ -20,6 +19,7 @@ source $HOME/.config/nvim/general/functions.vim
 
 " Mappings
 source $HOME/.config/nvim/keys/mappings.vim
+source $HOME/.config/nvim/keys/which-key.vim
 
 " Themes
 source $HOME/.config/nvim/themes/onedark.vim
