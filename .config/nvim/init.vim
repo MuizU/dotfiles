@@ -1,3 +1,9 @@
+" General Settings
+source $HOME/.config/nvim/general/settings.vim
+source $HOME/.config/nvim/general/functions.vim
+source $HOME/.config/nvim/keys/mappings.vim
+source $HOME/.config/nvim/keys/which-key.vim
+
 "" Vim-plug
 source $HOME/.config/nvim/vim-plugins/plugins.vim
 
@@ -13,13 +19,6 @@ source $HOME/.config/nvim/plug-config/vim-polyglot.vim
 " Modules
 source $HOME/.config/nvim/modules/netrw.vim
 
-" General Settings
-source $HOME/.config/nvim/general/settings.vim
-source $HOME/.config/nvim/general/functions.vim
-
-" Mappings
-source $HOME/.config/nvim/keys/mappings.vim
-source $HOME/.config/nvim/keys/which-key.vim
 
 " Themes
 source $HOME/.config/nvim/themes/onedark.vim
