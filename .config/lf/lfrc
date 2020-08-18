@@ -76,6 +76,7 @@ cmd open ${{
     application/octet-stream) nvim $fx;;
 	application/pdf) setsid -f zathura $fx >/dev/null 2>&1 ;;
 	inode/*) nvim $fx;;
+    image/*) sxiv $fx;;
 	video/*) vlc $f >/dev/null 2>&1 ;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
