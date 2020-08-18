@@ -209,7 +209,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export TERM=xterm-256color
 
@@ -233,6 +232,7 @@ man() {
 }
 
 source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f $HOME/.config/zsh/functions.zsh ] && source $HOME/.config/zsh/functions.zsh
