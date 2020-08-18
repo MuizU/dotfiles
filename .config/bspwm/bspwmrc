@@ -5,7 +5,7 @@
 (ps x | grep bspswallow | grep -v grep) || $HOME/.local/bin/bspswallow &
 pkill nm-applet
 nm-applet &
-setxkbmap -option caps:swapescape
+#setxkbmap -option caps:swapescape
 i3-battery-popup -L 20 -n -- i &
 picom -b &
 xss-lock --transfer-sleep-lock -betterlockscreen -s
