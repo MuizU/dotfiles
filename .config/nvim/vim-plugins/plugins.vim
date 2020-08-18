@@ -49,6 +49,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+  " Cool Icons
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'liuchengxu/vim-which-key'
 

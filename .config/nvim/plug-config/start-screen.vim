@@ -41,3 +41,11 @@ let g:startify_custom_header = [
         \ ' /    / |/ / /  ` \  / /|_/ / _ `/ __/ _ \  / __/ ',
         \ '/_/|_/|___/_/_/_/_/ /_/  /_/\_,_/\__/_//_/ /____/ ',
         \]
+let g:startify_enable_special = 0
+
+
+let g:webdevicons_enable_startify = 1
+
+function! StartifyEntryFormat()
+        return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+    endfunction
