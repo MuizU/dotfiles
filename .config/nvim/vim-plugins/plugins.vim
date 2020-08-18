@@ -44,14 +44,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'itchyny/vim-gitbranch'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'preservim/nerdcommenter' 
-Plug 'kamykn/spelunker.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
   " Cool Icons
 Plug 'ryanoasis/vim-devicons'
-
 Plug 'liuchengxu/vim-which-key'
 
 Plug 'lervag/vimtex'
