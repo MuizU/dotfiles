@@ -56,3 +56,7 @@ endif
 
 
 set pyxversion=3
+
+" Runs a script that cleans out tex build files whenever I close out of a .tex file.
+	autocmd VimLeave *.tex !texclear %
+

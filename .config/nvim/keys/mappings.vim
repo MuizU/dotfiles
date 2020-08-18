@@ -82,4 +82,11 @@ noremap <Leader>p "*p
 noremap <Leader>Y "+y
 noremap <Leader>P "+p
 
+" Make file executable
 nmap <leader>x :Xbit<CR>
+
+" Compile document, be it groff/LaTeX/markdown/etc.
+	map <leader>C :w! \| !compiler <c-r>%<CR>
+
+" Open corresponding .pdf/.html or preview
+	map <leader>p :!opout <c-r>%<CR><CR>

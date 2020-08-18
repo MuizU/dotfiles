@@ -15,4 +15,3 @@ function! SetExecutableBit()
   execute "au! FileChangedShell " . fname
 endfunction
 command! Xbit call SetExecutableBit()
-
