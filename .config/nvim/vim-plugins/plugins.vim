@@ -54,6 +54,8 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'liuchengxu/vim-which-key'
 
+Plug 'lervag/vimtex'
+
 call plug#end()
 "
 " Automatically install missing plugins on startup
