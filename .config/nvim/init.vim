@@ -10,6 +10,7 @@ source $HOME/.config/nvim/vim-plugins/plugins.vim
 " Plugin Configurations
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/vimtex.vim
+source $HOME/.config/nvim/plug-config/fugitive.vim
 source $HOME/.config/nvim/plug-config/codi.vim
 source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/ctrlp.vim
