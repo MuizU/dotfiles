@@ -63,3 +63,9 @@ set pyxversion=3
 " Highlight TODOs and FIXMEs
 syn match   myTodo   contained   "\<\(TODO\|FIXME\):"
 hi def link myTodo Todo
+
+" Spell checker , use zg command to add to dictionary
+autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb
+"autocmd BufRead,BufNewFile *.tex setlocal spell
+set complete+=kspell
+
