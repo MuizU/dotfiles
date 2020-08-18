@@ -65,7 +65,9 @@ syn match   myTodo   contained   "\<\(TODO\|FIXME\):"
 hi def link myTodo Todo
 
 " Spell checker , use zg command to add to dictionary
-autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb
+autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb,en_us
 "autocmd BufRead,BufNewFile *.tex setlocal spell
 set complete+=kspell
 
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
