@@ -85,7 +85,7 @@ font-3 = Inconsolata Nerd Font Mono:style=Regular:size=6;1
 
 modules-left =  arrow0 bspwm arrow1 arrow0 powermenu arrow1 arrow0 alsa arrow1 arrow0 backlight arrow1 arrow0 date arrow1
 modules-center =
-modules-right = arrow2 xwindow arrow3 arrow2 battery arrow3 arrow2 memory arrow3 arrow2 time arrow3
+modules-right = arrow2 xwindow arrow3 arrow2 temperature arrow3 arrow2 battery arrow3 arrow2 memory arrow3 arrow2 time arrow3
 
 tray-position = right 
 tray-background = ${colors.mbg}
@@ -410,6 +410,7 @@ format-warn-background = ${colors.mbg}
 label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${gruvbox.red}
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
 
 ramp-0 = 
 ramp-1 = 
