@@ -17,6 +17,8 @@ Plug 'ap/vim-css-color'
 " plugin for vim wiki
 Plug 'vimwiki/vimwiki'
 
+Plug 'chrisbra/vim-autosave' , {'for':'wiki'}
+
 " Will enable undo history in another buffer
 Plug 'mbbill/undotree'
 
