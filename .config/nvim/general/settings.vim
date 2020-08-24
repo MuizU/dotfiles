@@ -68,6 +68,3 @@ hi def link myTodo Todo
 autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb,en_us
 "autocmd BufRead,BufNewFile *.tex setlocal spell
 set complete+=kspell
-
-au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
