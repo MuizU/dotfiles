@@ -14,6 +14,9 @@ Plug 'luochen1990/rainbow'
 " displays the actual css color
 Plug 'ap/vim-css-color'
 
+" vim tig explorer
+Plug 'iberianpig/tig-explorer.vim'
+
 " plugin for vim wiki
 Plug 'vimwiki/vimwiki'
 
