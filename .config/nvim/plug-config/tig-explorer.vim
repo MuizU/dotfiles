@@ -1,7 +1,10 @@
 let g:tig_explorer_keymap_edit    = '<C-o>'
 let g:tig_explorer_keymap_tabedit = '<C-t>'
-let g:tig_explorer_keymap_split   = '<C-s>'
-let g:tig_explorer_keymap_vsplit  = '<C-V>'
+let g:tig_explorer_keymap_split   = '<C-y>'
+let g:tig_explorer_keymap_vsplit  = '<C-l>'
+
+" don't use builtin terminal
+let g:tig_explorer_use_builtin_term=0
 
 " open tig with current file
 nnoremap <Leader>T :TigOpenCurrentFile<CR>
@@ -22,4 +25,4 @@ vnoremap <Leader>g y:TigGrep<Space><C-R>"<CR>
 nnoremap <Leader>cg :<C-u>:TigGrep<Space><C-R><C-W><CR>
 
 " open tig blame with current file
-nnoremap <Leader>b :TigBlame<CR>
+nnoremap <Leader>l :TigBlame<CR>
