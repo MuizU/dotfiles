@@ -177,6 +177,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
 	zsh-syntax-highlighting
+    zsh-autosuggestions
 	history
 	vi-mode
 	)	
