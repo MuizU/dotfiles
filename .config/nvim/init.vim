@@ -24,6 +24,7 @@ source $HOME/.config/nvim/modules/netrw.vim
 
 
 " Themes
+"source $HOME/.config/nvim/themes/space-vim-dark.vim
 source $HOME/.config/nvim/themes/onedark.vim
 source $HOME/.config/nvim/themes/lightline.vim
 

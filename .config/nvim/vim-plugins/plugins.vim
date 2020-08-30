@@ -11,8 +11,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " match the ending bracket with the same color will have a rainbow color
 Plug 'luochen1990/rainbow'
 
+Plug 'liuchengxu/space-vim-dark'
 " displays the actual css color
 Plug 'ap/vim-css-color'
+
+Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" tex-conceal
+Plug 'KeitaNakamura/tex-conceal.vim'
 
 " vim tig explorer
 Plug 'iberianpig/tig-explorer.vim'
@@ -35,6 +41,9 @@ Plug 'joshdick/onedark.vim'
 Plug 'rbgrouleff/bclose.vim'
 
 Plug 'ChristianChiarulli/codi.vim'
+
+" honza vim-snippets
+Plug 'honza/vim-snippets'
 
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'xuhdev/vim-latex-live-preview'
