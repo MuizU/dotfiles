@@ -209,7 +209,19 @@ cmd delete ${{
 }}
 
 
-cmd trash %trash-put $fx
+cmd trash ${{
+    mkdir -p ~/.trash
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/N]"
+	read ans
+    if [ -z "$fs" ]; then
+     [ $ans = "y" ] && mv "$f" ~/.trash
+    else
+        IFS="`printf '\n\t'`"; [ $ans = "y" ] &&  mv $fs ~/.trash
+    fi
+}}
 
 
 
@@ -238,7 +250,7 @@ map B bulkrename
 map yp yank-path
 map C copyto
 map p paste
-map D delete
+map D trash
 map E extract
 map yb yank-basename-without-extension
 map yB yank-basename
