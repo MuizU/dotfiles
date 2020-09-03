@@ -17,6 +17,9 @@ Plug 'ap/vim-css-color'
 
 Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
 
+" nvim nightly
+Plug 'kdheepak/lazygit.nvim'
+
 " tex-conceal
 Plug 'KeitaNakamura/tex-conceal.vim'
 
