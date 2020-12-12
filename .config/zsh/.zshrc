@@ -1,4 +1,4 @@
-neofetch --ascii_distro arch
+#neofetch --ascii_distro arch
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -35,6 +35,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export GOPATH="~/golang"
 
 export EDITOR=nvim
+
+# Only for wsl
+export DISPLAY=localhost:0.0
 
 export ZSH_CUSTOM="$ZSH/custom"
 
@@ -231,8 +234,6 @@ man() {
     LESS_TERMCAP_us=$'\e[01;32m' \
     command man "$@"
 }
-
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
