@@ -43,13 +43,13 @@ map O $mimeopen --ask $f
 # Go to ... dir
 map gc :cd ~/.config/
 map gb :cd ~/.local/bin/
-map gd :cd ~/Documents/
+map gd :cd /mnt/c/Users/muizu/OneDrive/Documents
 map gm :cd ~/media
 map gM :cd ~/Music
 map gl :cd ~/.local
-map gD :cd ~/Downloads/
-map gp :cd ~/Pictures/
-map gv :cd ~/Videos/
+map gD :cd /mnt/c/Users/muizu/OneDrive/Downloads
+map gp :cd /mnt/c/Users/muizu/OneDrive/Pictures
+map gv :cd /mnt/c/Users/muizu/OneDrive/Videos
 
 # Make Directory
 cmd mkdir %mkdir "$(echo $* | tr ' ' '\ ')"
@@ -85,7 +85,7 @@ cmd open ${{
 }}
 
 # define a custom 'rename' command without prompt for overwrite
-# cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
+ cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 # map r push :rename<space>
 
 # make sure trash folder exists
@@ -256,5 +256,6 @@ map yb yank-basename-without-extension
 map yB yank-basename
 map M moveto
 map <c-r> reload
+map r rename
 map <enter> shell
 map b $setbg $f
