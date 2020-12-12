@@ -12,6 +12,7 @@ source $HOME/.config/nvim/plug-config/coc.vim
 "source $HOME/.config/nvim/plug-config/tig-explorer.vim
 source $HOME/.config/nvim/plug-config/lazygit.vim
 source $HOME/.config/nvim/plug-config/vimtex.vim
+source $HOME/.config/nvim/plug-config/prob.vim
 source $HOME/.config/nvim/plug-config/fugitive.vim
 source $HOME/.config/nvim/plug-config/codi.vim
 source $HOME/.config/nvim/plug-config/rainbow.vim
