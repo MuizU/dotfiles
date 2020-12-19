@@ -50,7 +50,7 @@ Plug 'mhinz/vim-startify'
 Plug 'joshdick/onedark.vim'
 Plug 'rbgrouleff/bclose.vim'
 
-Plug 'ChristianChiarulli/codi.vim'
+"Plug 'ChristianChiarulli/codi.vim'
 
 " honza vim-snippets
 Plug 'honza/vim-snippets'

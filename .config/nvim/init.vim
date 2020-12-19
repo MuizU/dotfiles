@@ -14,7 +14,7 @@ source $HOME/.config/nvim/plug-config/lazygit.vim
 source $HOME/.config/nvim/plug-config/vimtex.vim
 source $HOME/.config/nvim/plug-config/prob.vim
 source $HOME/.config/nvim/plug-config/fugitive.vim
-source $HOME/.config/nvim/plug-config/codi.vim
+"source $HOME/.config/nvim/plug-config/codi.vim
 source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/ctrlp.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
