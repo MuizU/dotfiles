@@ -11,6 +11,7 @@
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
         "markdown",
+        "coc-java",
         "javascript",
         "latex",
         "html",
@@ -55,5 +56,10 @@
     "emmet.includeLanguages": {
         "vue-html": "html",
         "javascript": "javascriptreact"
-    }
+    },
+    //codelens
+    "codeLens.enable": true,
+    "java.referencesCodeLens.enabled": true,
+    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok.jar",
+    // "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok.jar -Xbootclasspath/a:/usr/local/share/lombok.jar", // for older vers
 }

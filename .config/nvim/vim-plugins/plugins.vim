@@ -11,8 +11,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " match the ending bracket with the same color will have a rainbow color
 Plug 'luochen1990/rainbow'
 
+"java plugins
+Plug 'nvim-treesitter/nvim-treesitter'
 
 Plug 'liuchengxu/space-vim-dark'
+
 " displays the actual css color
 Plug 'ap/vim-css-color'
 
