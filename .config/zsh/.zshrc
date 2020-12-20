@@ -240,3 +240,8 @@ man() {
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f $HOME/.config/zsh/functions.zsh ] && source $HOME/.config/zsh/functions.zsh
+
+# perl
+ if (command -v perl && command -v cpanm) >/dev/null 2>&1; then
+   test -d "$HOME/perl5/lib/perl5" && eval $(perl -I "$HOME/perl5/lib/perl5" -Mlocal::lib)
+   fi
