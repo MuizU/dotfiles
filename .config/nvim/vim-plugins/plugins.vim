@@ -19,7 +19,7 @@ Plug 'liuchengxu/space-vim-dark'
 " displays the actual css color
 Plug 'ap/vim-css-color'
 
-Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug '"KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " nvim nightly
 Plug 'kdheepak/lazygit.nvim'
