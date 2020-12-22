@@ -7,6 +7,14 @@
         "method": "m",
         "function": ""
     },
+    "coc.preferences.rootPatterns": [
+        ".git",
+        ".hg",
+        "init.vim",
+        ".classpath",
+        ".iml",
+        ".projections.json"
+    ],
     //autoformat
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
@@ -20,7 +28,6 @@
         "python"
     ],
     "coc.preferences.hoverTarget": "float",
-    "javascript.format.enabled": true,
     // diagnostics
     "diagnostic.errorSign": " ",
     "diagnostic.warningSign": " ",
@@ -52,14 +59,11 @@
             ]
         }
     },
-    // emmet
-    "emmet.includeLanguages": {
-        "vue-html": "html",
-        "javascript": "javascriptreact"
-    },
     //codelens
     "codeLens.enable": true,
+    "coc.preferences.snippets.enable": true,
+    "java.home": "/usr/lib/jvm/java-14-openjdk",
+    "java.trace.server": "verbose",
     "java.referencesCodeLens.enabled": true,
-    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok.jar",
-    // "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok.jar -Xbootclasspath/a:/usr/local/share/lombok.jar", // for older vers
+    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar"
 }
