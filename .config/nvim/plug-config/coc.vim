@@ -1,21 +1,17 @@
   let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-actions',
-    "\ 'coc-emmet',
+    \ 'coc-emmet',
     \ 'coc-marketplace',
-    "\ 'coc-tslint-plugin',
     \ 'coc-tasks',
-    "\ 'coc-tsserver',
-    "\ 'coc-html',
     \ 'coc-css',
-    "\ 'coc-yaml',
+    \ 'coc-java',
+    \ 'coc-yaml',
     \ 'coc-python',
-    "\ 'coc-svg',
     \ 'coc-vimlsp',
     \ 'coc-yank',
     \ 'coc-json',
     \ 'coc-vimtex',
-    \ 'coc-tabnine'
     \ ]
 
 
