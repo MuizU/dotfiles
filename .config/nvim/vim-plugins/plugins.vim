@@ -16,18 +16,10 @@ Plug 'vinceau/vim-ltsa-syntax'
 "java plugins
 Plug 'nvim-treesitter/nvim-treesitter'
 
-" Fire NVIM
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-Plug 'liuchengxu/space-vim-dark'
 
 " displays the actual css color
 Plug 'ap/vim-css-color'
-
-"Plug '"KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" nvim nightly
-Plug 'kdheepak/lazygit.nvim'
 
 " prob
 Plug 'bivab/prob.vim'
@@ -41,44 +33,54 @@ Plug 'iberianpig/tig-explorer.vim'
 " plugin for vim wiki
 Plug 'vimwiki/vimwiki'
 
-Plug 'chrisbra/vim-autosave' , {'for':'wiki'}
-
 " Will enable undo history in another buffer
 Plug 'mbbill/undotree'
 
 " vim surround
 Plug 'tpope/vim-surround'
 
-Plug 'mhinz/vim-startify'
-
 " Vim one dark
 Plug 'joshdick/onedark.vim'
+
 Plug 'rbgrouleff/bclose.vim'
 
-"Plug 'ChristianChiarulli/codi.vim'
 
 " honza vim-snippets
 Plug 'honza/vim-snippets'
 
 Plug 'kovetskiy/sxhkd-vim'
+
 Plug 'xuhdev/vim-latex-live-preview'
+
 Plug 'sheerun/vim-polyglot'
+
 Plug 'itchyny/lightline.vim'
-Plug 'kien/ctrlp.vim'
+
+
 Plug 'gregsexton/MatchTag'
+
 Plug 'kien/ctrlp.vim'
+
 Plug 'Raimondi/delimitMate'
+
 Plug 'posva/vim-vue'
+
 Plug 'tpope/vim-fugitive'
+
 Plug 'itchyny/vim-gitbranch'
+
 Plug 'norcalli/nvim-colorizer.lua'
+
 Plug 'preservim/nerdcommenter' 
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 Plug 'junegunn/fzf.vim'
+
 Plug 'airblade/vim-rooter'
   " Cool Icons
 Plug 'ryanoasis/vim-devicons'
+
 Plug 'liuchengxu/vim-which-key'
 
 Plug 'lervag/vimtex'
