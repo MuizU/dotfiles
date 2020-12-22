@@ -11,8 +11,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " match the ending bracket with the same color will have a rainbow color
 Plug 'luochen1990/rainbow'
 
+Plug 'vinceau/vim-ltsa-syntax'
+
 "java plugins
 Plug 'nvim-treesitter/nvim-treesitter'
+
+" Fire NVIM
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'liuchengxu/space-vim-dark'
 
