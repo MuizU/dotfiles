@@ -3,6 +3,7 @@ let mapleader=" "
 " let localleader=" "
 nnoremap <Space> <Nop>
 
+" Run and compile
 " Better nav for omnicomplete
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
@@ -55,6 +56,7 @@ noremap <silent> <C-N> :call ToggleNetrw()<CR>
 
 " Spellcheck
 nmap <leader>o :setlocal spell! spelllang=en_us<CR>
+nmap <leader><enter> :CompileRun<CR>
 
 " vim-fugitive
 nmap <leader>gs :vertical G<CR>
