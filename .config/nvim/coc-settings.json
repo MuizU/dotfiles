@@ -11,6 +11,7 @@
         ".git",
         ".hg",
         "init.vim",
+        "vimspector.json",
         ".classpath",
         ".iml",
         ".projections.json"
@@ -63,7 +64,7 @@
     //codelens
     "codeLens.enable": true,
     "coc.preferences.snippets.enable": true,
-    "java.home": "/usr/lib/jvm/java-14-openjdk",
+    "java.home": "/usr/lib/jvm/java-8-openjdk",
     "java.trace.server": "verbose",
     "java.referencesCodeLens.enabled": true,
     "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar"
