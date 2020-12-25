@@ -36,8 +36,6 @@ export GOPATH="~/golang"
 
 export EDITOR=nvim
 
-# Only for wsl
-export DISPLAY=localhost:0.0
 
 export ZSH_CUSTOM="$ZSH/custom"
 
@@ -222,7 +220,11 @@ export TERM=xterm-256color
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# Then, source plugins and add commands to $PATH
+# WSL X server
+
+export DISPLAY=172.24.224.1:0.0
+export LIBGL_ALWAYS_INDIRECT=1
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -244,4 +246,5 @@ man() {
 # perl
  if (command -v perl && command -v cpanm) >/dev/null 2>&1; then
    test -d "$HOME/perl5/lib/perl5" && eval $(perl -I "$HOME/perl5/lib/perl5" -Mlocal::lib)
-   fi
+fi
+
