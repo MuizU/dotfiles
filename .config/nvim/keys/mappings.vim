@@ -14,7 +14,10 @@ nnoremap <M-k>    :resize +2<CR>
 nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
 
-" I hate escape more than anything else
+" escape search highlight
+nnoremap <Leader>/ :noh<CR>
+
+" escape keys
 inoremap jk <Esc>
 inoremap kj <Esc>
 
