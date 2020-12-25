@@ -13,6 +13,10 @@ Plug 'luochen1990/rainbow'
 
 Plug 'vinceau/vim-ltsa-syntax'
 
+" Intellij plugin
+Plug 'beeender/Comrade'
+
+
 "java plugins
 Plug 'nvim-treesitter/nvim-treesitter'
 
