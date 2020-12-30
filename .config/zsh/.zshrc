@@ -222,7 +222,7 @@ bindkey '^e' edit-command-line
 
 # WSL X server
 
-export DISPLAY=172.24.224.1:0.0
+export DISPLAY=192.168.240.1:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 
 
@@ -247,4 +247,4 @@ man() {
  if (command -v perl && command -v cpanm) >/dev/null 2>&1; then
    test -d "$HOME/perl5/lib/perl5" && eval $(perl -I "$HOME/perl5/lib/perl5" -Mlocal::lib)
 fi
-
+export PATH=$PATH:~/.local/bin
