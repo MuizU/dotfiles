@@ -35,7 +35,8 @@ function! ToggleNetrw()
 endfunction
 augroup ProjectDrawer
   autocmd!
-  autocmd VimEnter * :Vexplore
+   autocmd VimEnter * if argc() == 0 | Vexplore! | endif
+  "autocmd VimEnter * :Vexplore
 augroup END
 
 autocmd FileType netrw setl bufhidden=wipe
