@@ -1,5 +1,5 @@
 typeset -U PATH path
-path=("$HOME/.local/bin" "/mnt/c/users/muizu/downloads/ProB/probcli.exe" "/usr/local/go/bin" "$HOME/.npm-global" "$HOME/.config/lf" "$HOME/.config/bspwm" "$HOME/.config/coc" "$HOME/.config/nvim" "$HOME/.config/rofi" "$HOME/.config/sxhkd" "$HOME/.config/dunst" "$path[@]")
+path=("$HOME/.local/bin", "/usr/lib/jvm/java-8-openjdk/bin" "/mnt/c/users/muizu/downloads/ProB/probcli.exe" "/usr/local/go/bin" "$HOME/.npm-global" "$HOME/.config/lf" "$HOME/.config/bspwm" "$HOME/.config/coc" "$HOME/.config/nvim" "$HOME/.config/rofi" "$HOME/.config/sxhkd" "$HOME/.config/dunst" "$path[@]")
 export PATH
 
 # default home directories
@@ -9,6 +9,12 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 # Clean home
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+export JAVA_HOME=/usr/lib/jvm/default-runtime
+export JDK_HOME=/usr/lib/jvm/java-8-openjdk
+
+# Add JAVA bin directory to the PATH variable
+export PATH=$PATH:$JAVA_HOME/bin
 
 
 export EDITOR="nvim"
@@ -186,4 +192,4 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
-
+PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') 
