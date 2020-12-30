@@ -1,23 +1,15 @@
-[core]
-	filemode = false
-	filemode = false
-	filemode = false
-	filemode = false
 [user]
 	name = MuizU
 	email = muizuvais99@gmail.com
 [color]
 	ui = true
-[diff]
-	tool = vimdiff3
-[difftool "vimdiff3"]
-	path = nvim
-# define command which will be used when "nvim" is set as a merge tool
-[mergetool "nvim"]
-  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
-# set "nvim" as tool for merging
 [merge]
-  tool = nvim
-# automatically launch merge tool without displaying a prompt
+  tool = vimdiff
 [mergetool]
+  prompt = true
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool]
   prompt = false
+[diff]
+  tool = vimdiff
