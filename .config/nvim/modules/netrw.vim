@@ -30,14 +30,14 @@ function! ToggleNetrw()
             let i-=1
         endwhile
     if !wasOpen
-        silent Lexplore
+        silent Vexplore
     endif
 endfunction
-augroup ProjectDrawer
-  autocmd!
-   autocmd VimEnter * if argc() == 0 | Vexplore! | endif
-  "autocmd VimEnter * :Vexplore
-augroup END
+
+"augroup ProjectDrawer
+  "autocmd!
+   "autocmd VimEnter * if argc() == 0 | ToggleNetrw()! | endif
+  ""autocmd VimEnter * :Vexplore
+"augroup END
 
 autocmd FileType netrw setl bufhidden=wipe
-
