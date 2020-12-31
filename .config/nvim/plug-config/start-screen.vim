@@ -1,4 +1,12 @@
 " Location for startify sessions
+let g:startify_custom_header = [
+        \ '        _   ___      ______          __   ',
+        \ '       / | / / |    / ____/___  ____/ /__ ',
+        \ '      /  |/ /| |   / /   / __ \/ __  / _ \',
+        \ '     / /|  / | |  / /___/ /_/ / /_/ /  __/',
+        \ '    /_/ |_/  |_|  \____/\____/\__,_/\___/ ',
+        \]
+                                      
 let g:startify_session_dir = '~/.config/nvim/session'
 
 " Startify Menu
