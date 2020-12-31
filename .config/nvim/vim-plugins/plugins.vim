@@ -16,11 +16,8 @@ Plug 'vinceau/vim-ltsa-syntax'
 " Intellij plugin
 Plug 'beeender/Comrade'
 
-
 "java plugins
 Plug 'nvim-treesitter/nvim-treesitter'
-
-
 
 " displays the actual css color
 Plug 'ap/vim-css-color'
@@ -48,7 +45,6 @@ Plug 'joshdick/onedark.vim'
 
 Plug 'rbgrouleff/bclose.vim'
 
-
 " honza vim-snippets
 Plug 'honza/vim-snippets'
 
@@ -59,7 +55,6 @@ Plug 'xuhdev/vim-latex-live-preview'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'itchyny/lightline.vim'
-
 
 Plug 'gregsexton/MatchTag'
 
@@ -79,10 +74,14 @@ Plug 'preservim/nerdcommenter'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" FZF plugins
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 
 Plug 'airblade/vim-rooter'
-  " Cool Icons
+
+" Cool Icons
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'liuchengxu/vim-which-key'
