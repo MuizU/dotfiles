@@ -47,7 +47,7 @@ map gd :cd /mnt/c/Users/muizu/OneDrive/Documents
 map gm :cd ~/media
 map gM :cd ~/Music
 map gl :cd ~/.local
-map gD :cd /mnt/c/Users/muizu/OneDrive/Downloads
+map gD :cd /mnt/c/Users/muizu/Downloads
 map gp :cd /mnt/c/Users/muizu/OneDrive/Pictures
 map gv :cd /mnt/c/Users/muizu/OneDrive/Videos
 
