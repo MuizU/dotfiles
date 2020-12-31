@@ -36,6 +36,7 @@ export GOPATH="~/golang"
 
 export EDITOR=nvim
 
+export OPENER=xdg-open
 
 export ZSH_CUSTOM="$ZSH/custom"
 
