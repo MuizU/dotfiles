@@ -11,6 +11,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " match the ending bracket with the same color will have a rainbow color
 Plug 'luochen1990/rainbow'
 
+Plug 'mhinz/vim-startify'
+
 Plug 'vinceau/vim-ltsa-syntax'
 
 " Intellij plugin
