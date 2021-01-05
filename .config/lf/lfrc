@@ -25,6 +25,19 @@ set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 # commands accordingly.
 
 
+# git integration
+cmd git_branch ${{
+    git branch | fzf | xargs git checkout 
+    pwd_shell=$(pwd)
+    lf -remote "send $id updir"
+    lf -remote "send $id cd \"$pwd_shell\""
+}}
+
+map gb :git_branch
+map gp ${{clear; git pull --rebase || true; echo "press ENTER"; read ENTER}}
+map gs ${{clear; git status; echo "press ENTER"; read ENTER}}
+map gl ${{clear; git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit}}
+
 $lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
 
 # leave some space at the top and the bottom of the screen
