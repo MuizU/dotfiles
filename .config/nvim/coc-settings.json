@@ -20,8 +20,8 @@
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
         "markdown",
-        "coc-java",
         "java",
+        "css",
         "javascript",
         "latex",
         "html",
