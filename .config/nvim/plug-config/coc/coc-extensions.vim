@@ -3,6 +3,7 @@
     \ 'coc-actions',
     \ 'coc-emmet',
     \ 'coc-marketplace',
+    \ 'coc-html',
     \ 'coc-tasks',
     \ 'coc-css',
     \ 'coc-java',
