@@ -74,6 +74,7 @@ cmd open ${{
         text/*) nvim $fx;;
 	application/json) nvim $fx;;
     image/x-xcf) gimp $fx;;
+    application/msword) word $fx;;
     application/octet-stream) nvim $fx;;
 	application/pdf) setsid -f zathura $fx >/dev/null 2>&1 ;;
 	inode/*) nvim $fx;;
@@ -93,7 +94,7 @@ cmd open ${{
 
 # move current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
-cmd trash %set -f; mv $fx /.Trash
+cmd trash %trash-put $fx
 
 # define a custom 'delete' command
 # cmd delete ${{
@@ -105,7 +106,7 @@ cmd trash %set -f; mv $fx /.Trash
 # }}
 
 # use '<delete>' key for either 'trash' or 'delete' command
-# map <delete> trash
+map <delete> trash
 # map <delete> delete
 
 # extract the current file with the right command
@@ -156,18 +157,44 @@ cmd yank-basename ${{
 }}
 
 
-cmd paste %{{
-    load=$(lf -remote 'load')
-    mode=$(echo "$load" | sed -n '1p')
-    list=$(echo "$load" | sed '1d')
-    if [ $mode = 'copy' ]; then
-        cp -R $list .
-    elif [ $mode = 'move' ]; then
-        mv $list .
-    fi
-    lf -remote 'send load'
-    lf -remote 'send clear'
+# zsh integration
+cmd zle-cd %printf 'cd %q && zle reset-prompt\n' "$PWD" >&$ZLE_FIFO
+
+cmd zle-insert-relative %{{
+    for f in $fx; do
+        printf 'LBUFFER+="${LBUFFER:+ }${(q)$(realpath %q --relative-to=$PWD)}"\n' "$f" >&$ZLE_FIFO
+    done
 }}
+
+cmd zle-insert-absolute %{{
+    for f in $fx; do
+        printf 'LBUFFER+="${LBUFFER:+ }%q"\n' "$f" >&$ZLE_FIFO
+    done
+}}
+
+cmd zle-init :{{
+    map . zle-cd
+    map a zle-insert-relative
+    map A zle-insert-absolute
+}}
+
+&[[ -n "$ZLE_FIFO" ]] && lf -remote "send $id zle-init"
+
+#paste
+cmd paste $cp-p --lf-paste $id
+
+/*cmd paste %{{*/
+    /*load=$(lf -remote 'load')*/
+    /*mode=$(echo "$load" | sed -n '1p')*/
+    /*list=$(echo "$load" | sed '1d')*/
+    /*if [ $mode = 'copy' ]; then*/
+        /*cp -R $list .*/
+    /*elif [ $mode = 'move' ]; then*/
+        /*mv $list .*/
+    /*fi*/
+    /*lf -remote 'send load'*/
+    /*lf -remote 'send clear'*/
+/*}}*/
 
 
 cmd moveto ${{
