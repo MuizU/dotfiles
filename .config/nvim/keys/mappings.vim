@@ -59,7 +59,7 @@ noremap <silent> <C-N> :call ToggleNetrw()<CR>
 
 " Spellcheck
 nmap <leader>o :setlocal spell! spelllang=en_us<CR>
-nmap <leader><enter> :CompileRun<CR>
+nmap <leader><enter> :call CompileRun()<CR>
 
 " vim-fugitive
 nmap <leader>gs :vertical G<CR>
