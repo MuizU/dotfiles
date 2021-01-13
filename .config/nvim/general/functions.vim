@@ -17,13 +17,6 @@ endfunction
 command! Xbit call SetExecutableBit()
 
 function! CompileRun()
-  exec "w"
-  "if &filetype == 'c'
-    "exec "!gcc % -o %<"
-    "exec "!time ./%<"
-  "elseif &filetype == 'cpp'
-    "exec "!g++ % -o %<"
-    "exec "!time ./%<"
   if &filetype == 'java'
     exec "!javac %"
     exec "!time java -cp %:p:h %:t:r"
@@ -32,10 +25,7 @@ function! CompileRun()
   elseif &filetype == 'python'
     exec "!time python2.7 %"
   elseif &filetype == 'html'
-    exec "!chrome % &"
-  elseif &filetype == 'mkd'
-    exec "!~/.vim/markdown.pl % > %.html &"
-    exec "!firefox %.html &"
+    exec "!brave % &"
   endif
-endfunc
+endfunction
 command! CompileRun call CompileRun()
