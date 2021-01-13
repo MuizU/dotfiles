@@ -19,7 +19,7 @@ let g:startify_lists = [
 
 " Startify Bookmarks
 let g:startify_bookmarks = [
-            \ { 'c': '~/.config/bspwm/bspwmrc' },
+            \ { 'cp': '/mnt/c/Users/muizu/OneDrive/Documents/IIT/Level_6/Concurrent_programming/Muiz_CWK/java-printing-system' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'z': '~/.zshrc' },
             \ '~/Documents',

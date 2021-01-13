@@ -9,6 +9,7 @@ source $HOME/.config/nvim/vim-plugins/plugins.vim
 
 " Plugin Configurations
 source $HOME/.config/nvim/plug-config/coc/coc.vim
+source $HOME/.config/nvim/plug-config/comments.vim
 source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
 luafile $HOME/.config/nvim/lua/treesitter.lua
 source $HOME/.config/nvim/plug-config/lazygit.vim

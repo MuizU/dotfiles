@@ -11,7 +11,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " match the ending bracket with the same color will have a rainbow color
 Plug 'luochen1990/rainbow'
 
+"Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+Plug 'sudar/comments.vim'
+
 Plug 'mhinz/vim-startify'
+
+Plug 'tomtom/tcomment_vim'
+" Plug 'tpope/vim-commentary'
 
 Plug 'vinceau/vim-ltsa-syntax'
 
@@ -72,8 +79,8 @@ Plug 'itchyny/vim-gitbranch'
 
 Plug 'norcalli/nvim-colorizer.lua'
 
-Plug 'preservim/nerdcommenter' 
-
+Plug 'tyru/caw.vim'
+"Plug 'preservim/nerdcommenter' 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " FZF plugins
