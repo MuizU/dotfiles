@@ -36,6 +36,8 @@ export GOPATH="~/golang"
 
 export EDITOR=nvim
 
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
+
 export OPENER=xdg-open
 
 export ZSH_CUSTOM="$ZSH/custom"
@@ -223,7 +225,8 @@ bindkey '^e' edit-command-line
 
 # WSL X server
 
-export DISPLAY=192.168.240.1:0.0
+export DISPLAY_NUMBER="0.0"
+export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):$DISPLAY_NUMBER
 export LIBGL_ALWAYS_INDIRECT=1
 
 
@@ -249,3 +252,4 @@ man() {
    test -d "$HOME/perl5/lib/perl5" && eval $(perl -I "$HOME/perl5/lib/perl5" -Mlocal::lib)
 fi
 export PATH=$PATH:~/.local/bin
+export PATH=/opt/apache-maven-3.6.3/bin:$PATH
