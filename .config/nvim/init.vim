@@ -8,6 +8,7 @@ source $HOME/.config/nvim/keys/which-key.vim
 source $HOME/.config/nvim/vim-plugins/plugins.vim
 
 " Plugin Configurations
+source $HOME/.config/nvim/plug-config/bracey.vim
 source $HOME/.config/nvim/plug-config/coc/coc.vim
 source $HOME/.config/nvim/plug-config/comments.vim
 source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
