@@ -21,6 +21,7 @@
         "css",
         "markdown",
         "java",
+        "vue",
         "css",
         "javascript",
         "latex",
@@ -66,5 +67,10 @@
     "java.home": "/usr/lib/jvm/java-8-openjdk",
     "java.trace.server": "verbose",
     "java.referencesCodeLens.enabled": true,
-    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar"
+    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar",
+
+    //vetur
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.options.useTabs": true
+
 }
