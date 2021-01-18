@@ -11,7 +11,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " match the ending bracket with the same color will have a rainbow color
 Plug 'luochen1990/rainbow'
 
+Plug 'rhysd/vim-fixjson'
+
 "Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'turbio/bracey.vim' 
+
+Plug 'jcartledge/git-blame-nvim'
 
 Plug 'sudar/comments.vim'
 
