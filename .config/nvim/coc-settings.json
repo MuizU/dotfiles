@@ -71,6 +71,10 @@
 
     //vetur
     "vetur.format.options.tabSize": 4,
-    "vetur.format.options.useTabs": true
+    "vetur.format.options.useTabs": true,
 
+    //HTML
+    "html.validate.scripts": true,
+    "html.validate.styles": true,
+    "html.autoClosingTags": true
 }
