@@ -57,6 +57,9 @@ Plug 'tpope/vim-surround'
 " Vim one dark
 Plug 'joshdick/onedark.vim'
 
+" Palenight
+Plug 'drewtempelmeyer/palenight.vim'
+
 Plug 'rbgrouleff/bclose.vim'
 
 " honza vim-snippets
