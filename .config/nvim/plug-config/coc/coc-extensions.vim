@@ -1,5 +1,6 @@
   let g:coc_global_extensions = [
     \ 'coc-snippets',
+    \ 'coc-css',
     \ 'coc-vetur',
     \ 'coc-actions',
     \ 'coc-emmet',
