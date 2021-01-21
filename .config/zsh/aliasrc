@@ -2,11 +2,13 @@
 
 
 # aliases
+alias wudo="python3 ~/.config/wsl-sudo.py"
 alias s="sudo"
 alias oldvim="vim"
 alias v="nvim"
 alias xampp="sudo /opt/lampp/lampp"
 alias vim="nvim"
+alias word="/mnt/c/Program\ Files/WindowsApps/Microsoft.Office.Desktop.Word_16051.13029.20344.0_x86__8wekyb3d8bbwe/Office16/WINWORD.EXE"
 alias g="git"
 alias gdiff="git diff"
 alias gc="git clone"
@@ -24,3 +26,5 @@ alias dcm="dotfiles commit -v"
 alias da="dotfiles add"
 alias dstatus="dotfiles status"
 alias probcli="/mnt/c/Users/muizu/Downloads/prob_linux/ProB/probcli"
+alias wt="/mnt/c/Program\ Files/WindowsApps/Microsoft.WindowsTerminal_1.3.2651.0_x64__8wekyb3d8bbwe/wt.exe"
+alias brave-win="/mnt/c/Program\ Files\ (x86)/BraveSoftware/Brave-Browser/Application/brave.exe"
