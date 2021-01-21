@@ -81,6 +81,7 @@ Plug 'Raimondi/delimitMate'
 
 Plug 'posva/vim-vue'
 
+Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
 Plug 'itchyny/vim-gitbranch'
