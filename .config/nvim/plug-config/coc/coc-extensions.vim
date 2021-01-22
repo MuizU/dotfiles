@@ -2,6 +2,7 @@
     \ 'coc-snippets',
     \ 'coc-css',
     \ 'coc-vetur',
+    \ 'coc-go',
     \ 'coc-actions',
     \ 'coc-emmet',
     \ 'coc-marketplace',
