@@ -6,7 +6,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-call plug#begin('~/.config/nvim/autoload/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 " match the ending bracket with the same color will have a rainbow color
 Plug 'luochen1990/rainbow'
