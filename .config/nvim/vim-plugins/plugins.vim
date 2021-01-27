@@ -28,7 +28,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'vinceau/vim-ltsa-syntax'
 
 " Intellij plugin
-Plug 'beeender/Comrade'
+"Plug 'beeender/Comrade'
 
 "java plugins
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -67,7 +67,7 @@ Plug 'honza/vim-snippets'
 
 Plug 'kovetskiy/sxhkd-vim'
 
-Plug 'xuhdev/vim-latex-live-preview'
+Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'}
 
 Plug 'sheerun/vim-polyglot'
 
@@ -107,6 +107,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'liuchengxu/vim-which-key'
 
 Plug 'lervag/vimtex'
+
+" Easy Align
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 "
