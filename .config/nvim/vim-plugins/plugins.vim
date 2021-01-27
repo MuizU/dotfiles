@@ -84,7 +84,7 @@ Plug 'posva/vim-vue'
 " Git stuff
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
+"Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'itchyny/vim-gitbranch'
 
