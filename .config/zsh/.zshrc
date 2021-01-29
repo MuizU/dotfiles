@@ -32,7 +32,7 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export GOPATH="~/golang"
+#export GOPATH="~/golang"
 
 export EDITOR=nvim
 
@@ -56,11 +56,11 @@ ZSH_THEME="agnoster"
 # User configuration
 # Always work in a tmux session if tmux is installed
 # https://github.com/chrishunt/dot-files/blob/master/.zshrc
-#if which tmux 2>&1 >/dev/null; then
-  #if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
-     #tmux attach -t hack || tmux; exit
-  #fi
-#fi
+if which tmux 2>&1 >/dev/null; then
+  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+     tmux attach -t hack || tmux; exit
+  fi
+fi
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -79,7 +79,7 @@ export KEYTIMEOUT=1
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
+    lfrun -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
             dir="$(cat "$tmp")"
             rm -f "$tmp" >/dev/null
@@ -185,7 +185,7 @@ plugins=(git
 	zsh-syntax-highlighting
     zsh-autosuggestions
 	history
-	vi-mode
+	zsh-vi-mode
 	)	
 
 source $ZSH/oh-my-zsh.sh
