@@ -111,6 +111,12 @@ Plug 'lervag/vimtex'
 " Easy Align
 Plug 'junegunn/vim-easy-align'
 
+" Fire nvim
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+"vim go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
 "
 " Automatically install missing plugins on startup
