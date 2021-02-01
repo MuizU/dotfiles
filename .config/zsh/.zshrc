@@ -262,3 +262,5 @@ function command_not_found_handler {
   print -ru2 "command not found: $1"
   return 127
 }
+## set colors for LS_COLORS
+eval `dircolors ~/.dircolors`
