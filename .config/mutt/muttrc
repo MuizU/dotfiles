@@ -1,0 +1,19 @@
+set folder = "imaps://muiz.2016010@iit.ac.lk@imap.gmail.com:993"
+
+set smtp_url = "stmps://muiz.2016010@iit.ac.lk@gmail.com:587"
+
+# check out with https://unix.stackexchange.com/a/223088
+source "gpg -d ~/.mutt/passwords.gpg |"
+
+set from = "muiz.2016010@iit.ac.lk"
+set realname = "Muiz Uvais"
+
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
+
+mailboxes =INBOX =Sent =Drafts =Junk =Other
+
+# set order of emails
+set sort = reverse-date-received
