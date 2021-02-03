@@ -1,0 +1,141 @@
+global !p
+from snippet_helpers import me
+def geehrtes(s):
+   if "Herr".startswith(s):
+      return "geehrter"
+   else:
+      return "geehrte"
+def frau(s):
+   if not s:
+      return ""
+   elif "Frau".startswith(s):
+      return "Frau"[len(s):]
+   elif "Herr".startswith(s):
+      return "Herr"[len(s):]
+   else:
+      return ""
+mfg             = "Mit freundlichen Grüßen\n" + me # No comma here in German.
+viele_gruesse   = "Viele Grüße\n"             + me[:me.find(" ")]
+beste_gruesse   = "Beste Grüße\n"             + me[:me.find(" ")]
+sincerely_yours = "Sincerely yours,\n"        + me # Use a comma in English.
+sincerely       = "Sincerely,\n"              + me
+kind_regards    = "Kind regards,\n"           + me
+best_regards    = "Best regards,\n"           + me
+regards         = "Regards,\n"                + me
+cheers          = "Cheers,\n"                 + me[:me.find(" ")]
+endglobal
+
+snippet me
+`!p snip.rv = me`
+endsnippet
+
+snippet mfg "" b
+`!p snip.rv = mfg`
+endsnippet
+
+snippet vg "" b
+`!p snip.rv = viele_gruesse`
+endsnippet
+
+snippet bg "" b
+`!p snip.rv = beste_gruesse`
+endsnippet
+
+snippet sincerely "" b
+`!p snip.rv = sincerely`
+endsnippet
+
+snippet kr "" b
+`!p snip.rv = kind_regards`
+endsnippet
+
+snippet br "" b
+`!p snip.rv = best_regards`
+endsnippet
+
+snippet r "" b
+`!p snip.rv = regards`
+endsnippet
+
+snippet c "" b
+`!p snip.rv = cheers`
+endsnippet
+
+post_expand "vim.command('set spelllang=de,en_us')"
+snippet hallo "" b
+Sehr `!p snip.rv = geehrtes(t[1] or t[2])` ${1:Herr}`!p snip.rv = frau(t[1])``!p snip.rv = t[1] and " " or ""`${2:`!p snip.rv = t[1] and "Zorin" or "Damen und Herren"`},
+
+${0:dieser Satz wird kleingeschrieben.}
+
+`!p snip.rv = mfg`
+endsnippet
+
+post_expand "vim.command('set spelllang=de,en_us')"
+snippet hallodr "" b
+Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr}`!p snip.rv = frau(t[1])` Dr. ${2:Frankenstein},
+
+${0:dieser Satz wird kleingeschrieben.}
+
+`!p snip.rv = mfg`
+endsnippet
+
+post_expand "vim.command('set spelllang=de,en_us')"
+snippet halloprof "" b
+Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr}`!p snip.rv = frau(t[1])` Professor ${2:Metz},
+
+${0:dieser Satz wird kleingeschrieben.}
+
+`!p snip.rv = mfg`
+endsnippet
+
+post_expand "vim.command('set spelllang=de,en_us')"
+snippet he "" b
+Hallo`!p snip.rv = t[1] and " " or ""`${1:Ernst},
+
+${0:dieser Satz wird kleingeschrieben.}
+
+`!p snip.rv = viele_gruesse`
+endsnippet
+
+# Should a colon or a comma be used after the salutation?
+post_expand "vim.command('set spelllang=en_us')"
+snippet hello "" b
+Dear ${1:Mr.}`!p snip.rv = t[1] and " " or ""`${2:`!p snip.rv = t[1] and "Scaramanga" or "Sir or Madam"`},
+
+${0:This sentence should start with a capital letter.}
+
+`!p snip.rv = sincerely`
+endsnippet
+
+post_expand "vim.command('set spelllang=en_us')"
+snippet hellodr "" b
+Dear Dr. ${1:No},
+
+${0:This sentence should start with a capital letter.}
+
+`!p snip.rv = sincerely`
+endsnippet
+
+post_expand "vim.command('set spelllang=en_us')"
+snippet helloprof "" b
+Dear Professor ${1:Moriarty},
+
+${0:This sentence should start with a capital letter.}
+
+`!p snip.rv = sincerely`
+endsnippet
+
+post_expand "vim.command('set spelllang=en_us')"
+snippet oi "" b
+Hello`!p snip.rv = t[1] and " " or ""`${1:Auric},
+
+${0:This sentence should start with a capital letter.}
+
+`!p snip.rv = cheers`
+endsnippet
+
+snippet creed
+There is no system but GNU, and Linux is one of its kernels.
+endsnippet
+
+# vim: tw=90 ts=3 sts=-1 sw=0 noet
