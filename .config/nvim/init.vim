@@ -14,6 +14,7 @@ source $HOME/.config/nvim/plug-config/coc/coc.vim
 source $HOME/.config/nvim/plug-config/comments.vim
 source $HOME/.config/nvim/plug-config/vimwiki.vim
 source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
+source $HOME/.config/nvim/plug-config/coc/coc-snippets.vim
 "luafile $HOME/.config/nvim/lua/treesitter.lua
 source $HOME/.config/nvim/plug-config/lazygit.vim
 source $HOME/.config/nvim/plug-config/vimtex.vim

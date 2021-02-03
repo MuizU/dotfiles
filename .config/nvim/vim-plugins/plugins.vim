@@ -64,6 +64,7 @@ Plug 'rbgrouleff/bclose.vim'
 
 " honza vim-snippets
 Plug 'honza/vim-snippets'
+"Plug 'sirVer/ultisnips'
 
 Plug 'kovetskiy/sxhkd-vim'
 
