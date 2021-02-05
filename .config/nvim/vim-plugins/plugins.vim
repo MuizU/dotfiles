@@ -62,9 +62,8 @@ Plug 'drewtempelmeyer/palenight.vim'
 
 Plug 'rbgrouleff/bclose.vim'
 
-" honza vim-snippets
+"  vim-snippets
 Plug 'honza/vim-snippets'
-"Plug 'sirVer/ultisnips'
 
 Plug 'kovetskiy/sxhkd-vim'
 
