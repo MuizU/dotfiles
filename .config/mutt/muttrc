@@ -1,6 +1,6 @@
 set folder = "imaps://muiz.2016010@iit.ac.lk@imap.gmail.com:993"
 
-set smtp_url = "stmps://muiz.2016010@iit.ac.lk@gmail.com:587"
+set smtp_url = "stmps://muiz.2016010@iit.ac.lk@gmail.com"
 
 # check out with https://unix.stackexchange.com/a/223088
 source "gpg -d ~/.mutt/passwords.gpg |"
@@ -17,3 +17,8 @@ mailboxes =INBOX =Sent =Drafts =Junk =Other
 
 # set order of emails
 set sort = reverse-date-received
+
+#set signature
+set signature="~/.signature"
+
+source colors.muttrc
