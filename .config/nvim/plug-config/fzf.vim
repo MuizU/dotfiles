@@ -7,6 +7,8 @@ let g:fzf_commits_log_options = '--graph --color=always
 
 autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
 
+nnoremap <silent> <Leader>f :Rg<CR>
+
 " This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',

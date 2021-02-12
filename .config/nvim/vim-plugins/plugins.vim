@@ -25,25 +25,25 @@ Plug 'mhinz/vim-startify'
 Plug 'tomtom/tcomment_vim'
 " Plug 'tpope/vim-commentary'
 
-Plug 'vinceau/vim-ltsa-syntax'
+"Plug 'vinceau/vim-ltsa-syntax'
 
 " Intellij plugin
 "Plug 'beeender/Comrade'
 
 "java plugins
-Plug 'nvim-treesitter/nvim-treesitter'
+"Plug 'nvim-treesitter/nvim-treesitter'
 
 " displays the actual css color
-Plug 'ap/vim-css-color'
+"Plug 'ap/vim-css-color'
 
 " prob
-Plug 'bivab/prob.vim'
+"Plug 'bivab/prob.vim'
 
 " tex-conceal
 Plug 'KeitaNakamura/tex-conceal.vim'
 
 " vim tig explorer
-Plug 'iberianpig/tig-explorer.vim'
+"Plug 'iberianpig/tig-explorer.vim'
 
 " plugin for vim wiki
 Plug 'vimwiki/vimwiki'
@@ -55,7 +55,7 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 
 " Vim one dark
-Plug 'joshdick/onedark.vim'
+"Plug 'joshdick/onedark.vim'
 
 " Palenight
 Plug 'drewtempelmeyer/palenight.vim'
@@ -65,7 +65,7 @@ Plug 'rbgrouleff/bclose.vim'
 "  vim-snippets
 Plug 'honza/vim-snippets'
 
-Plug 'kovetskiy/sxhkd-vim'
+"Plug 'kovetskiy/sxhkd-vim'
 
 Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'}
 
@@ -90,8 +90,9 @@ Plug 'itchyny/vim-gitbranch'
 
 Plug 'norcalli/nvim-colorizer.lua'
 
-Plug 'tyru/caw.vim'
 "Plug 'preservim/nerdcommenter' 
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " FZF plugins
@@ -102,7 +103,7 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'airblade/vim-rooter'
 
 " Cool Icons
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 
 Plug 'liuchengxu/vim-which-key'
 
@@ -116,6 +117,13 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 "vim go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+"Plug 'junegunn/goyo.vim' 
+Plug 'greidron/mangroff'
+
+" Leaderf-snippet
+"Plug 'Yggdroot/LeaderF'
+"Plug 'skywind3000/Leaderf-snippet'
 
 call plug#end()
 "

@@ -32,6 +32,10 @@ set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard+=unnamedplus               " Copy paste between vim and everything else
 set autochdir                           " Your working directory will always be the same as your working directory
+set matchpairs+=<:> " use % to jump between pairs
+set path=$PWD/**        " enable fuzzy finding in the vim command line
+set wildmenu            " enable fuzzy menu
+set wildignore+=**/.git/**,**/__pycache__/**,**/venv/**,**/node_modules/**,**/dist/**,**/build/**,*.o,*.pyc,*.swp "ignore
 set noswapfile                          " no swap files will be created
 set incsearch                           " search characters as theya are entered
 set synmaxcol=120
