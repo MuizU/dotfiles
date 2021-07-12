@@ -92,7 +92,11 @@ noremap <Leader>P "+p
 nmap <leader>x :Xbit<CR>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
-	map <leader>C :w! \| !compiler <c-r>%<CR>
+map <leader>C :w! \| !compiler <c-r>%<CR>
 
 " Open corresponding .pdf/.html or preview
-	map <leader>p :!opout <c-r>%<CR><CR>
+map <leader>p :!opout <c-r>%<CR><CR>
+
+" Map Tab space
+vnoremap <Tab> >
+vnoremap <S-Tab> <
