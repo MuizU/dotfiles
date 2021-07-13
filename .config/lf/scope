@@ -53,6 +53,15 @@ handle_mime() {
     esac
 }
 
+handle_fallback() {
+    echo '----- File Type Classification -----' && file --dereference --brief -- "${FILE_PATH}"
+    exit 1
+}
+
+
 MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
+handle_extension
 handle_mime "${MIMETYPE}"
+handle_fallback
+
 exit 1
